@@ -1,4 +1,4 @@
-# An Introduction to Functional Programming
+## An Introduction to Functional Programming
 
 Preamble: to start building our program, we do need to to a bit of programming and C++ first. We are going to review some programming concepts and write some code that will have little to do with computer graphics but will set a general framework with wich we will work until the end.
 

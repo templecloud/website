@@ -1,3 +1,4 @@
-modern-rendering-framework.md
-rendering-framework-overview.md
-functional-api.md
+@Building a more advanced rendering framework
+modern-rendering-framework.md:An introduction to modern rendering
+rendering-framework-overview.md:Overview of the rendering framework
+functional-api.md:Building a functional programming compliant API
