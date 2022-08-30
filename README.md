@@ -1,12 +1,10 @@
-This repository contains the content of scratchapixel.com if Mardown format.
+This repository contains the content of scratchapixel.com in Mardown format.
 
 ## Editing Content
 
 ### Why and Who Can Edit the Content, and Waht For?
 
-Anybody can edit the content. So you are more than welcome to do so. Alghtough be mindful about a few things: changes won't necessarily be accepted / go to the main branch (see guidelines below).
-
-Why: to improve the website's quality. 
+Anybody can edit the content. So you are more than welcome to do so. Alghtough be mindful about a few things: changes won't necessarily be accepted / go to the main branch (see guidelines below). **The goal of making the project open source at this point in time is mostly to improve the content in terms of typos, bug fixes, grammar improvements, etc.**
 
 What for?
 
