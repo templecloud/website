@@ -1,6 +1,6 @@
-@Introduction to raytracing: a simple method for creating 3D images
-how-does-it-work.md:How does it work
-raytracing-algorithm-in-a-nutshell.md:The raytracing algorithm in a nutshell
-implementing-the-raytracing-algorithm.md:Implementing the raytracing algorithm
-adding-reflection-and-refraction.md:Adding reflection and refraction
-ray-tracing-practical-example.md:Writing a basic raytracer
+@Introduction to Raytracing: A Simple Method for Creating 3D Images
+how-does-it-work.md:How Does it Work
+raytracing-algorithm-in-a-nutshell.md:The Raytracing Algorithm in a Nutshell
+implementing-the-raytracing-algorithm.md:Implementing the Raytracing Algorithm
+adding-reflection-and-refraction.md:Adding Reflection and Refraction
+ray-tracing-practical-example.md:Writing a Basic Raytracer
