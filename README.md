@@ -1,5 +1,19 @@
 This repository contains the content of scratchapixel.com in Markdown format.
 
+What is Scratchapixel? It is a website that attempts at being a central repository of various computer graphics techniques. We try to offer readers a place in which most of that vital information is stored and organized in a single location.
+
+- Free. 
+- Written in plain English. 
+- Every equation is derived.
+- Techniques are studied if possible in isolation of the others. Each studied technique is implement in a progam (C++ source code provided) that can easily be compiled from acommand line. No Makefile, no dependency. It's designed for people who have a more practical approach to learning than a theoritical one (we go from practical implementation to theory).
+- Focus on simplicity & accessibility.
+
+What Scratchapixel is not:
+
+- Doesn't teach you how to use 3D software
+- Doesn't teach you about 3D real-time API such as Direct X or Vulkan. However it will help you understand how these APIs work under the hood.
+- Doesn't provide the source code of  complex programs containing 100 of files and a other-designed third-party dependent build setup that fails to work on your computer no matter what).
+
 ## Licence and Copyright
 
 XX TO DO
@@ -43,3 +57,5 @@ XX TODO
 ## Philosophy Behind Writing Content for Scratchapixel
 
 XX TO DO
+
+We can always do more, but there's limited number of hours in a day. Let's iterate instead. One step at at time. Some first version of a lesson is better than no lesson at all. And then over time, let's improve things, add more visuals, etc.
