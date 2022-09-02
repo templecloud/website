@@ -1,5 +1,8 @@
-@Basic Section:This is a simple intro
+@Mathematics for Computer Graphics:Most common mathematical tools/techniques used in computer graphics/computer vision. Go through the lessons of the basic section first, and then eventually start reading these lessons as you go along.
+mathematics-physics-for-computer-graphics/geometry/
+
+@Basic Section:Best read in chronological order (top to bottom).
 3d-basic-rendering/introduction-to-ray-tracing/
 
-@Accelerating Raytracing:This is something already more complicated
+@Accelerating Raytracing:This series of lessons marks the beginning of the advanced section in which we will explore various modern ray-tracing frameworks and/or solutions. Best read in chronological order. This section is currently being written (Q3/Q4 2022) and will consequently be regularly changing.
 accelerating-rendering/modern-rendering-architecture/

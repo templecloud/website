@@ -1,0 +1,13 @@
+@Geometry
+points-vectors-and-normals.md:Points, Vectors and Normals
+coordinate-systems.md:Coordinate Systems
+math-operations-on-points-and-vectors.md:Math Operations on Points and Vectors
+matrices.md:Matrices
+how-does-matrix-work-part-1.md:How Does Matrix Work: Part 1
+how-does-matrix-work-part-2.md:How Does Matrix Work: Part 2
+transforming-points-and-vectors.md:Transforming Points and Vectors
+row-major-vs-column-major-vector.md:Row Major vs Column Major Vector
+matrix-operations.md:Matrix Operations
+spherical-coordinates-and-trigonometric-functions.md:Spherical Coordinates and Trigonometric Functions
+creating-an-orientation-matrix-or-local-coordinate-system.md:Creating an Orientation Matrix or Local Coordinate System
+transforming-normals.md:Transforming Normals

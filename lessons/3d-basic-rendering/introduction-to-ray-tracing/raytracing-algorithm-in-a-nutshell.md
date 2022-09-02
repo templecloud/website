@@ -12,7 +12,7 @@ ANSWER: explaining why light is reflected in every possible direction is off-top
 
 Sometimes the structure of the material at the macro level is organized in patterns which can cause the surface of an object to reflect light in particular directions. This is described as an anisotropic reflection and will be explained in detail in the lesson on light-materials interaction. The macrostructure of the material can also be the cause of unusual visual effects such as iridescence which we can observe in butterflies wings for instance.
 
-![// insert image here]()
+![// insert image]()
 
 We can now begin to look at the situation in terms of computer graphics. First, we replace our eyes with an image plane composed of pixels. In this case, the photons emitted will hit one of the many pixels on the image plane, increasing the brightness at that point to a value greater than zero. This process is repeated multiple times until all the pixels are adjusted, creating a computer-generated image. This technique is called **forward ray-tracing** because we follow the path of the photon forward from the light source to the observer.
 
@@ -30,7 +30,7 @@ Even if we do decide to use this method, with a scene made up of diffuse objects
 
 Imagine that we are trying to paint a teapot by making dots with a white marker pen onto a black sheet of paper (consider every dot to be a photon). As we see in the image below, to begin with only a few photons intersect with the teapot object, leaving many uncovered areas. As we continue to add dots, the density of photons increases until the teapot is "almost" entirely covered with photons making the object more easily recognizable.
 
-![// Insert image here]()
+![// Insert image]()
 
 But shooting 1000 photons, or even X times more, will never truly guarantee that the surface of our object will be covered with photons. That's a major drawback of this technique. In other words, we would probably have to let the program run until we decide that it had sprayed enough photons onto the object's surface to get an accurate representation of it. This implies that we would need to watch the image as it's being rendered to decide when to stop the application. In a production environment, this simply isn't possible. Plus, as we will see, the most expensive task in a ray-tracer is finding ray-geometry intersections. Creating many photons from the light source is not an issue, but, having to find all of their intersections within the scene would be prohibitively expensive.
 

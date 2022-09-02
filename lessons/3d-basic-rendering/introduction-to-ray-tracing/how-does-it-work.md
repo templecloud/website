@@ -16,7 +16,7 @@ Although it seems unusual to start with the following statement, the first thing
 
 Let's imagine we want to draw a cube on a blank canvas. The easiest way of describing the projection process is to start by drawing lines from each corner of the three-dimensional cube to the eye. To map out the object's shape on the canvas, we mark a point where each line intersects with the surface of the image plane. For example, let us say that c0 is a corner of the cube and that it is connected to three other points: c1, c2, and c3. After projecting these four points onto the canvas, we get c0', c1', c2', and c3'. If c0-c1 defines an edge, then we draw a line from c0' to c1'. If c0-c2 defines an edge, then we draw a line from c0' to c2'.
 
-// image
+![insert image]()
 
 If we repeat this operation for the remaining edges of the cube, we will end up with a two-dimensional representation of the cube on the canvas. We have then created our first image using **perspective projection**. If we continually repeat this process for each object in the scene, what we get is an image of the scene as it appears from a particular vantage point. It was only at the beginning of the 15th century that painters started to understand the rules of perspective projection.
 
@@ -32,10 +32,10 @@ In science, we only differentiate two types of materials, metals which are calle
 
 An object can also be made out of a composite, or a multi-layered, material. For example, one can have an opaque object (let's say wood for example) with a transparent coat of varnish on top of it (which makes it look both diffuse and shiny at the same time as the colored plastic balls in the image below).
 
-// image
+![insert image]()
 
 Let's consider the case of opaque and diffuse objects for now. To keep it simple, we will assume that the absorption process is responsible for the object's color. White light is made up of "red", "blue", and "green" photons. If a white light illuminates a red object, the absorption process filters out (or absorbs) the "green" and the "blue" photons. Because the object does not absorb the "red" photons, they are reflected. This is the reason why this object appears red. Now, the reason why we see the object at all is because some of the "red" photons reflected by the object travel towards us and strike our eyes. Each point on an illuminated area, or object, radiates (reflects) light rays in every direction. Only one ray from each point strikes the eye perpendicularly and can therefore be seen. Our eyes are made of photoreceptors that convert light into neural signals. Our brain is then able to use these signals to interpret the different shades and hues (how we are not exactly sure). This is a very simplistic approach to describing the phenomena involved. Everything is explained in more detail in the lesson on color (which you can find in the section [Mathematics for Computer Graphics](/index)).
 
-// image
+![insert image]()
 
 Like the concept of perspective projection, it took a while for humans to understand light. The Greeks developed a theory of vision in which objects are seen by rays of light emanating from the eyes. An Arab scientist, **Ibn al-Haytham** (c. 965-1039), was the first to explain that we see objects because of the sun's rays of light; streams of tiny particles traveling in straight lines were reflected from objects into our eyes, forming images (Figure 3). Now let us see how we can simulate nature with a computer!
