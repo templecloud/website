@@ -40,7 +40,11 @@ If you wish to write original content please get in touch with us directly.
 - Do not change the directory structure not the content of metadata files such as `info.txt` which you will find in the lessons repository. Please.
 - Refrain yourself from changing a lesson's structure if possible. If you want to make that kind of change, please get in touch with us so that we can discuss this first. Please.
 - When you write the heading of a paragraph (##), always insure that the first letter of every **key** word is capitalized. For instance, write "This is Lesson on Ray-Tracing" and not "This is a lesson on ray-tracing"
-- Use standard markdown tags for things such as quote, italic, bold, images, etc.
+- Use standard markdown tags for things such as quote, italic, bold, images, etc. (provide link to Markdown rules here).
+- No point at the end of headings (h2)
+- No word capitalization after a semicolor. For example write, `Figure 1: this is an example` and not `Figure 1: This is an example`, unless of course the word is a noun.
+
+- Avoid double nested list (they don't look good on mobile).
 
 ## General File Organization
 
