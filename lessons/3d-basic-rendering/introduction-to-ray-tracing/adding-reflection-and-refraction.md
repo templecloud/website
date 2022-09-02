@@ -8,9 +8,7 @@ Similarly, we must also be aware of the fact that an object like a glass ball is
 
 ![Figure 1: using optical laws to compute reflection and refraction rays](/images/upload/introduction-to-ray-tracing/reflectionrefraction.gif)
 
-Figure 1: using optical laws to compute reflection and refraction rays
-
-So let's recap. How does the Whitted algorithm work? We shoot a primary ray from the eye and the closest intersection (if any) with objects in the scene. If the ray hits an object which is not a diffuse or opaque object, we must do extra computational work. To compute the resulting color at that point on, say, for example, the glass ball, you need to compute the reflection color and the refraction color and mix them. Remember, we do that in three steps. Compute the reflection color, compute the refraction color, and then apply the Fresnel equation.
+Let's recap. How does the Whitted algorithm work? We shoot a primary ray from the eye and the closest intersection (if any) with objects in the scene. If the ray hits an object which is not a diffuse or opaque object, we must do extra computational work. To compute the resulting color at that point on, say, for example, the glass ball, you need to compute the reflection color and the refraction color and mix them. Remember, we do that in three steps. Compute the reflection color, compute the refraction color, and then apply the Fresnel equation.
 
 ![](/images/upload/introduction-to-ray-tracing/glassball.png)
 
@@ -34,8 +32,10 @@ float Kt; // refraction mix value
 
 fresnel(refractiveIndex, normalHit, primaryRayDirection, &Kr, &Kt);
 
-// mix the two color
-glassBallColorAtHit = Kr \* reflectionColor + (1-Kr) \* refractionColor;
+// mix the two color. Note that Kt = 1 - Kr
+glassBallColorAtHit = Kr * reflectionColor + Kt * refractionColor;
 ```
 
-One last, beautiful thing about this algorithm is that it is **recursive** (that is also a curse in a way, too!). In the case we have studied so far, the reflection ray hits a red, opaque sphere and the refraction ray hits a green, opaque, and diffuse sphere. However, we are going to imagine that the red and green spheres are glass balls as well. To find the color returned by the reflection and the refraction rays, we would have to follow the same process with the red and green spheres that we used with the original glass ball. This is a serious drawback of the ray tracing algorithm and can be nightmarish in some cases. Imagine that our camera is in a box that has only reflective faces. Theoretically, the rays are trapped and will continue bouncing off of the box's walls endlessly (or until you stop the simulation). For this reason, we have to set an arbitrary limit that prevents the rays from interacting, and thus recursing endlessly. Each time a ray is either reflected or refracted its depth is incremented. We simply stop the recursion process when the ray depth is greater than the maximum recursion depth.
+In the code above we wrote in the comment that `Kt = 1 - Kr`. In other words `Kr + Kt = 1`. That's because in nature, light can't be created nor be destroyed. Therefore if some of the incident light is reflected, what's left of that incident light (the part that hasn't been reflected) has necessarily been refracted. If you take the sum of the reflected and refracted light, then it is equal to the amount of incoming light. Typically, the Fresnel equation provides us with a value for `Kr` and `Kt`, so you can use the values returned by the function directly. If we had only one of them, technically though, this would suffice.
+
+One last, beautiful thing about this algorithm is that it is **recursive** (that is also a curse in a way, too!). In the case we have studied so far, the reflection ray hits a red, opaque sphere and the refraction ray hits a green, opaque, and diffuse sphere. However, we are going to imagine that the red and green spheres are glass balls as well. To find the color returned by the reflection and the refraction rays, we would have to follow the same process with the red and green spheres that we used with the original glass ball: that is shooting even more reflection and refraction rays into the scene. This is a serious drawback of the ray tracing algorithm and can create serious problems in some cases. Imagine that our camera is in a box that has only reflective faces. Theoretically, the rays are trapped and will continue bouncing off of the box's walls endlessly (or until you stop the simulation). For this reason, we have to set an arbitrary limit that prevents the rays from interacting, and thus recursing endlessly. Each time a ray is either reflected or refracted its depth is incremented. We simply stop the recursion process when the ray depth is greater than the maximum recursion depth. Your imagine won't necessarily look perfectly accurate, but betting having an approximate result, than no result at all.
