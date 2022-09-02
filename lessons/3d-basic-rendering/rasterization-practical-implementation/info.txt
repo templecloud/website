@@ -1,0 +1,2 @@
+@Rasterization: a Practical Implementation
+overview-rasterization-algorithm.md:An Overview of the Rasterization Algorithm

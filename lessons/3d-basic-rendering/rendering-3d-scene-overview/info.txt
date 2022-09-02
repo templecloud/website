@@ -1,0 +1,2 @@
+@Rendering an Image of a 3D Scene: an Overview
+computer-discrete-raster.md:It All Starts with a Computer and a Computer Screen

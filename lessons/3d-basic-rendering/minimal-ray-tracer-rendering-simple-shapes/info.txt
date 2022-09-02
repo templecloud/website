@@ -1,0 +1,2 @@
+@A Minimal Ray-Tracer: Rendering Simple Shapes (Sphere, Cube, Disk, Plane, etc.)
+parametric-and-implicit-surfaces.md:Parametric and Implicit Surfaces
