@@ -95,7 +95,7 @@ Where Transparency here is the 1 - Transmission (also called opacity) and B is t
 
 We have all we need to render our first 3D image. We will render a sphere that we assume is filled with some particles using what we have learned so far. We will assume that we are rendering our sphere over some background. The principle is very simple. We first check for an intersection between our camera ray and the sphere. If there's no intersection, then we simply return the background color. If there is an intersection, we then calculate the points on the surface of the sphere where the ray enters and leaves the sphere. From there, we can compute the distance that the ray travels through the sphere and apply Beer's law to compute how much of the light is being transmitted through the sphere. We will assume that light "reflected" (scattered) by the sphere is uniform for now. We will look at lighting later.
 
-Technically, we don't need to compute the points where the ray enters and leaves the sphere to get the distance between the points. We simply need to subtract tmin to tmax (the ray parametric distances along the camera ray where the ray intersects the sphere. In the following example, we are only calculating the points to emphasize that what we care about here is the distance between these two points.
+Technically, we don't need to compute the points where the ray enters and leaves the sphere to get the distance between the points. We simply need to subtract tmin to tmax (the ray parametric distances along the camera ray where the ray intersects the sphere. In the following example, we calculate them to emphasize that what we care about here is the distance between these two points.
 
 ```
 class Sphere : public Object 
@@ -141,7 +141,7 @@ Quite logically, as the density increases, the transmission gets closer to 0 whi
 
 ![](/images/upload/volume-rendering-developers/voldev-simplevolspheres.png?)
 
-You can see in the images above, that the volume gets more opaque towards the center of the sphere (where the distance traveled by the ray through the sphere is the greater. You can also see that as the density increases (as sigma_a increases), the sphere becomes more opaque overall. Eureka! You've just rendered your first volumetric sphere and you are halfway to becoming a volume rendering expert.
+You can see in the images above, that the volume gets more opaque towards the center of the sphere (where the distance traveled by the ray through the sphere is the greatest. You can also see that as the density increases (as sigma_a increases), the sphere becomes more opaque overall. Eureka! You've just rendered your first volumetric sphere and you are halfway to becoming a volume rendering expert.
 
 ## Let's add light! In-Scattering
 
