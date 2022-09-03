@@ -46,8 +46,7 @@ $$
 
 This value plays an important role in simulating multiple scattering in participating media. Check the lessons on subsurface scattering and advanced volume rendering to learn more about these very cool topics.
 
-![Figure 1: the greater the distance or the greater the density the lower the internal transmittance value. 
-](/images/upload/volume-rendering-developers/voldev-expfunction.png)
+![Figure 1: the greater the distance or the greater the density the lower the internal transmittance value.](/images/upload/volume-rendering-developers/voldev-expfunction.png)
 
 The greater the absorption coefficient or the distance, the smaller T. The Beer-Lambert law equation returns a number in the range 0-1. If the distance or the absorption coefficient is 0, the equation returns 1. For very large numbers of either the distance or the density, T gets closer to 0. For a fixed distance, T decreases as we increase the absorption coefficient. For a fixed absorption coefficient, T decreases as we increase the distance. The further light travels in the volume, the more it gets absorbed. The more particles in the volume, the more light gets absorbed. Simple. You can see this effect in figure 1.
 
@@ -92,7 +91,7 @@ Where Transparency here is the 1 - Transmission (also called opacity) and B is t
 
 ![Figure 2: a camera ray passing through a volumetric object.](/images/upload/volume-rendering-developers/voldev-simplesetup.png)
 
-![Figure 3: we use the intersections points of the camera rays with the volumetric object to compute the opacity of the volumetric object along the camera rays. ](/images/upload/volume-rendering-developers/voldev-lightpassingthrough.png)
+![Figure 3: we use the intersections points of the camera rays with the volumetric object to compute the opacity of the volumetric object along the camera rays.](/images/upload/volume-rendering-developers/voldev-lightpassingthrough.png)
 
 We have all we need to render our first 3D image. We will render a sphere that we assume is filled with some particles using what we have learned so far. We will assume that we are rendering our sphere over some background. The principle is very simple. We first check for an intersection between our camera ray and the sphere. If there's no intersection, then we simply return the background color. If there is an intersection, we then calculate the points on the surface of the sphere where the ray enters and leaves the sphere. From there, we can compute the distance that the ray travels through the sphere and apply Beer's law to compute how much of the light is being transmitted through the sphere. We will assume that light "reflected" (scattered) by the sphere is uniform for now. We will look at lighting later.
 
