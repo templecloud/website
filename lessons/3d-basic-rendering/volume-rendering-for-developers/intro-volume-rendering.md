@@ -1,4 +1,4 @@
-## Preamble: Structure of this Kesson and Approach
+## Preamble: Structure of this Lesson and Approach
 
 Volume rendering (technically, using the term **participating media** instead of the term volume would be better) is a topic almost as large and as complex as hard surface rendering. It has its own set of equations which are in fact, almost a generalization of the equations used to describe how light interacts with hard matter. They can be overwhelming for readers that are not necessarily comfortable with such complex mathematical formulations.
 
