@@ -50,7 +50,7 @@ This value plays an important role in simulating multiple scattering in particip
 
 The greater the absorption coefficient or the distance, the smaller T. The Beer-Lambert law equation returns a number in the range 0-1. If the distance or the absorption coefficient is 0, the equation returns 1. For very large numbers of either the distance or the density, T gets closer to 0. For a fixed distance, T decreases as we increase the absorption coefficient. For a fixed absorption coefficient, T decreases as we increase the distance. The further light travels in the volume, the more it gets absorbed. The more particles in the volume, the more light gets absorbed. Simple. You can see this effect in figure 1.
 
-An absorbing-only medium is transparent (not translucid )but dims images seen through it (e.g.: beer, wine, gemstones, tinted glass).
+An absorbing-only medium is transparent (not translucid) but dims images seen through it (e.g.: beer, wine, gemstones, tinted glass).
 
 ## Rendering a Volume Over a Uniform Background
 
