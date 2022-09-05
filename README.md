@@ -40,18 +40,35 @@ If you wish to write original content please get in touch with us directly.
 - Do not change the directory structure not the content of metadata files such as `info.txt` which you will find in the lessons repository. Please.
 - Refrain yourself from changing a lesson's structure if possible. If you want to make that kind of change, please get in touch with us so that we can discuss this first. Please.
 - When you write the heading of a paragraph (##), always insure that the first letter of every **key** word is capitalized. For instance, write "This is Lesson on Ray-Tracing" and not "This is a lesson on ray-tracing"
-- Use standard markdown tags for things such as quote, italic, bold, images, etc. (provide link to Markdown rules here).
+- Use standard markdown tags for things such as quote, italic, bold, images, etc. (see below).
 - No point at the end of headings (h2)
-- No word capitalization after a semicolor. For example write, `Figure 1: this is an example` and not `Figure 1: This is an example`, unless of course the word is a noun.
-
-- Avoid double nested list (they don't look good on mobile).
+- No word capitalization after a semicolon. For example write, `Figure 1: this is an example` and not `Figure 1: This is an example`, unless of course the word is a noun.
+- Avoid double-nested lists (they don't look good on mobile).
 - The word Figure (if it refers to a figure) should be written `Figure` (with a capital F).
-- All texts in figures should end with a dot (this is actually checked by the MD to HTML app).
-- While the main author of Scratchapixel makes an abusive use of smileys, don't use smileys within the content of the lessons.
+- All texts in figures should end with a dot (this is checked by the MD to HTML app).
+- While the main author of Scratchapixel makes an abusive use of smileys, avoid smileys within the content of the lessons please)).
+
+### Markdown Rules
+
+We are using the standard rules though we added a few that are specific to Scratchapixel. Because in Scratchapixel we want to have a little something a little more sophisticated than what's offered by the basic rules (like notes, marking a paragraph as important, etc.).
+
+**Standard Markdown rules**:
+- \_italic_
+- \*\*bold**
+- \!\[Coment about the image](/relative/path/to/image.png)
+- \## heading 2 (space after \##)
+- \# heading 1 (space after \#)
+- List: start a paragraph with a - (numbered list not supported now). Don't forget to put a space after the sign -
+- \> quote
+- table: not supported yet
+
+**Rules that are specific to Scratchapixel**:
+- (( note ))
+- !important this text is important
 
 ### Style
 
-For style recommandation, check the Philosophy Behind Writing Content for Scratchapixel section below.
+For style recommendations, check the Philosophy Behind Writing Content for Scratchapixel section below.
 
 ## General File Organization
 
