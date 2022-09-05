@@ -6,11 +6,11 @@ The ray-tracing algorithm takes an image made of pixels. For each pixel in the i
 
 ![Figure 1: we shoot a primary ray through the center of the pixel to check for a possible object intersection. When we find one we then cast a shadow ray to find out if the point is illuminated or in shadow.](/images/introduction-to-ray-tracing/lightingnoshadow.gif)
 
-If this particular ray does not intersect an object on its way to the light, the hit point is illuminated. If it does intersect with another object, that object casts a shadow on it (figure 2).
+If this particular ray does not intersect an object on its way to the light, the hit point is illuminated. If it does intersect with another object, that object casts a shadow on it (Figure 2).
 
 ![Figure 2: the small sphere cast a shadow on the large sphere. The shadow ray intersects the small sphere before it gets to the light.](/images/introduction-to-ray-tracing/lightingshadow.gif)
 
-If we repeat this operation for every pixel, we obtain a two-dimensional representation of our three-dimensional scene (figure 3).
+If we repeat this operation for every pixel, we obtain a two-dimensional representation of our three-dimensional scene (Figure 3).
 
 ![Figure 3: to render a frame, we shoot a primary ray for each pixel of the frame buffer.](/images/introduction-to-ray-tracing/pixelrender.gif)
 

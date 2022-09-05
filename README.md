@@ -45,6 +45,13 @@ If you wish to write original content please get in touch with us directly.
 - No word capitalization after a semicolor. For example write, `Figure 1: this is an example` and not `Figure 1: This is an example`, unless of course the word is a noun.
 
 - Avoid double nested list (they don't look good on mobile).
+- The word Figure (if it refers to a figure) should be written `Figure` (with a capital F).
+- All texts in figures should end with a dot (this is actually checked by the MD to HTML app).
+- While the main author of Scratchapixel makes an abusive use of smileys, don't use smileys within the content of the lessons.
+
+### Style
+
+For style recommandation, check the Philosophy Behind Writing Content for Scratchapixel section below.
 
 ## General File Organization
 
@@ -63,3 +70,5 @@ XX TODO
 XX TO DO
 
 We can always do more, but there's a limited number of hours in a day. Let's iterate instead. One step at a time. Some first version of a lesson is better than no lesson at all. And then over time, let's improve things, add more visuals, etc.
+
+The written style is "casual". Writing "it's okay" vs "it is okay" is fine. Both versions are fine!
