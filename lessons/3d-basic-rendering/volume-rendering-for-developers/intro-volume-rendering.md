@@ -48,7 +48,7 @@ This value plays an important role in simulating multiple scattering in particip
 
 ![Figure 1: the greater the distance or the greater the density the lower the internal transmittance value.](/images/volume-rendering-developers/voldev-expfunction.png)
 
-The greater the absorption coefficient or the distance, the smaller T. The Beer-Lambert law equation returns a number in the range 0-1. If the distance or the absorption coefficient is 0, the equation returns 1. For very large numbers of either the distance or the density, T gets closer to 0. For a fixed distance, T decreases as we increase the absorption coefficient. For a fixed absorption coefficient, T decreases as we increase the distance. The further light travels in the volume, the more it gets absorbed. The more particles in the volume, the more light gets absorbed. Simple. You can see this effect in figure 1.
+The greater the absorption coefficient or the distance, the smaller T. The Beer-Lambert law equation returns a number in the range 0-1. If the distance or the absorption coefficient is 0, the equation returns 1. For very large numbers of either the distance or the density, T gets closer to 0. For a fixed distance, T decreases as we increase the absorption coefficient. For a fixed absorption coefficient, T decreases as we increase the distance. The further light travels in the volume, the more it gets absorbed. The more particles in the volume, the more light gets absorbed. Simple. You can see this effect in Figure 1.
 
 An absorbing-only medium is transparent (not translucid) but dims images seen through it (e.g.: beer, wine, gemstones, tinted glass).
 
@@ -89,11 +89,11 @@ Where Transparency here is the 1 - Transmission (also called opacity) and B is t
 
 ## Rendering our First Volume Sphere
 
+We have all we need to render our first 3D image. We will render a sphere that we assume is filled with some particles using what we have learned so far. We will assume that we are rendering our sphere over some background. The principle is very simple. We first check for an intersection between our camera ray and the sphere. If there's no intersection, then we simply return the background color. If there is an intersection, we then calculate the points on the surface of the sphere where the ray enters and leaves the sphere. From there, we can compute the distance that the ray travels through the sphere and apply Beer's law to compute how much of the light is being transmitted through the sphere. We will assume that light "reflected" (scattered) by the sphere is uniform for now. We will look at lighting later.
+
 ![Figure 2: a camera ray passing through a volumetric object.](/images/volume-rendering-developers/voldev-simplesetup.png)
 
 ![Figure 3: we use the intersections points of the camera rays with the volumetric object to compute the opacity of the volumetric object along the camera rays.](/images/volume-rendering-developers/voldev-lightpassingthrough.png)
-
-We have all we need to render our first 3D image. We will render a sphere that we assume is filled with some particles using what we have learned so far. We will assume that we are rendering our sphere over some background. The principle is very simple. We first check for an intersection between our camera ray and the sphere. If there's no intersection, then we simply return the background color. If there is an intersection, we then calculate the points on the surface of the sphere where the ray enters and leaves the sphere. From there, we can compute the distance that the ray travels through the sphere and apply Beer's law to compute how much of the light is being transmitted through the sphere. We will assume that light "reflected" (scattered) by the sphere is uniform for now. We will look at lighting later.
 
 Technically, we don't need to compute the points where the ray enters and leaves the sphere to get the distance between the points. We simply need to subtract tmin to tmax (the ray parametric distances along the camera ray where the ray intersects the sphere. In the following example, we calculate them to emphasize that what we care about here is the distance between these two points.
 
@@ -145,8 +145,6 @@ You can see in the images above, that the volume gets more opaque towards the ce
 
 ## Let's add light! In-Scattering
 
-![Figure 4: light we are seeing through a volumetric objects comes from the background objects (here the blue color) as well as from light sources. Even though light beams when emitted by the light source are not traveling to the eye, some quantity of light is being redirected to the eye as it passes through the volumetric object due to the in-scattering effect.](/images/volume-rendering-developers/voldev-inscattering.png)
-
 So far we have a nice image of a volumetric sphere, but what about lighting? If we shine a light onto a volumetric object, we can see that parts of the volume that are more directly exposed to light are brighter than those that are in shadows. Volumes too are illuminated by lights. How do we account for that?
 
 The principle is very simple. Let's imagine the fate of light emitted by a light source traveling through the volume. As it travels through the volume, its intensity gets attenuated due to absorption. And not surprisingly enough, how much is left of the light energy after it has traveled a certain distance in the volume is ruled by Beer's law. In other words, if we know the distance light traveled through the volume, its intensity at that distance is:
@@ -157,15 +155,17 @@ float T = exp(-distance_travelled_by_light * volume->absorption_coefficient);
 light_intensity_attenuation = T * ligth_intensity;
 ```
 
-So first thing first, light energy decreases as it travels through the volume according to Beer's law. That's pretty logical. But something else also happens: light emitted by a light source that is not initially traveling towards the eye, can also be redirected towards the eye (at least part of it as we will see) as a result of what we call the scattering effect. We speak in this particular case of **in-scattering**. In-scattering refers to light passing through a volume, that's being redirected towards the eyes due to a scattering event. This effect is illustrated in figure 4. A scattering event is the result of an interaction between a photon and a particle/atom making up the medium/volume. Rather than being absorbed or reflected (which can happen too), the atom just "spits out" the photon in a direction that's different from its incoming direction. We will learn more about this phenomenon in the next chapters.
+So first thing first, light energy decreases as it travels through the volume according to Beer's law. That's pretty logical. But something else also happens: light emitted by a light source that is not initially traveling towards the eye, can also be redirected towards the eye (at least part of it as we will see) as a result of what we call the scattering effect. We speak in this particular case of **in-scattering**. In-scattering refers to light passing through a volume, that's being redirected towards the eyes due to a scattering event. This effect is illustrated in Figure 4. A scattering event is the result of an interaction between a photon and a particle/atom making up the medium/volume. Rather than being absorbed or reflected (which can happen too), the atom just "spits out" the photon in a direction that's different from its incoming direction. We will learn more about this phenomenon in the next chapters.
 
-If you look at figure 4, note that light that arrives at the eye (along the particular eye/camera ray that is drawn in blue in the figure), is a combination of light coming from the background (our blue background) and light coming from the light source scattered towards the eye due to in-scattering (the yellow ray).
+![Figure 4: light we are seeing through a volumetric objects comes from the background objects (here the blue color) as well as from light sources. Even though light beams when emitted by the light source are not traveling to the eye, some quantity of light is being redirected to the eye as it passes through the volumetric object due to the in-scattering effect.](/images/volume-rendering-developers/voldev-inscattering.png)
+
+If you look at Figure 4, note that light that arrives at the eye (along the particular eye/camera ray that is drawn in blue in the figure), is a combination of light coming from the background (our blue background) and light coming from the light source scattered towards the eye due to in-scattering (the yellow ray).
+
+So how do we account for the contribution of a light source? We need to "measure" light that's being scattered towards the eye (along with the camera rays) as the effect of in-scattering. The problem is that we need to account for that effect along the entire part of the camera rays that are intersecting the sphere (Figure 5). We need to **"integrate"** light that's being in-scattered along the camera ray, over the range t0-t1.
 
 ![Figure 5: we need to integrate the light that's be redirected towards the eye due to in-scattering along the segment of the ray that passes through the volumetric object.](/images/volume-rendering-developers/voldev-raymarching1.png)
 
-So how do we account for the contribution of a light source? We need to "measure" light that's being scattered towards the eye (along with the camera rays) as the effect of in-scattering. The problem is that we need to account for that effect along the entire part of the camera rays that are intersecting the sphere (figure 5). We need to **"integrate"** light that's being in-scattered along the camera ray, over the range t0-t1.
-
-To solve this problem, we will divide the section of the camera ray that's passing through the volume into a certain number of segments (our samples if you wish) and compute how much light arrives at the center of each one of these segments (sample) using the following procedure (see figure 6 for a visual representation of the concept):
+To solve this problem, we will divide the section of the camera ray that's passing through the volume into a certain number of segments (our samples if you wish) and compute how much light arrives at the center of each one of these segments (sample) using the following procedure (see Figure 6 for a visual representation of the concept):
 
 - We shoot a ray from that sample point (let's call it X) towards the light source to compute the distance from the sample point to the sphere boundary (let's call this point P). Note that X is always inside the sphere (our volume) and P is always a point on the surface of the sphere.
 
@@ -175,13 +175,13 @@ To solve this problem, we will divide the section of the camera ray that's passi
 
 ![Figure 7: we can estimate the area under the curve that represent the amount of light scattered along the camera using a Riemann sum. The idea is to break the area under the curve into a sum of small rectangles. The height of each rectangle is given by Li(x) and the width, dx, is user defined.](/images/volume-rendering-developers/voldev-lightintegral2.png)
 
-To understand the type of problem we are solving here, we need to look at figures 6 and 7. Figure 6 shows the incoming light arriving along the camera ray which, as you can see in the bottom part of the figure, is a continuous function. Let's call this function Li(x) where x here is any point along the camera ray contained within the range t0-t1. What we need to compute is the "area" below the curve. In mathematics, it is an integral that we can write as:
+To understand the type of problem we are solving here, we need to look at Figures 6 and 7. Figure 6 shows the incoming light arriving along the camera ray which, as you can see in the bottom part of the figure, is a continuous function. Let's call this function Li(x) where x here is any point along the camera ray contained within the range t0-t1. What we need to compute is the "area" below the curve. In mathematics, it is an integral that we can write as:
 
 $$
 \int_{x=t_0}^{t_1} Li(x) dx
 $$
 
-As we just said, the result of an integral (which is a number) is defined to be the (net signed) area under the curve (the function Li(x)) as illustrated in figure 6. The problem in our case is that we can't compute this area using an analytical solution. But we can use a trick to approximate this area by breaking it down into simpler shapes we know the area of: rectangles (as shown in figure 7). We sample Li(x) along the curve at regular intervals which we know the width of (dx) and the area of the resulting rectangle can then be computed as Li(x) multiplied by dx (x is in the middle of the interval). By summing up the area of all the rectangles, we get an approximation of the area under the curve. Et voila! This technique is known as the Riemann sum (the idea of approximating a shape whose area we don't know with areas we do know goes back to the Greeks).
+As we just said, the result of an integral (which is a number) is defined to be the (net signed) area under the curve (the function Li(x)) as illustrated in Figure 6. The problem in our case is that we can't compute this area using an analytical solution. But we can use a trick to approximate this area by breaking it down into simpler shapes we know the area of: rectangles (as shown in Figure 7). We sample Li(x) along the curve at regular intervals which we know the width of (dx) and the area of the resulting rectangle can then be computed as Li(x) multiplied by dx (x is in the middle of the interval). By summing up the area of all the rectangles, we get an approximation of the area under the curve. Et voila! This technique is known as the Riemann sum (the idea of approximating a shape whose area we don't know with areas we do know goes back to the Greeks).
 
 You can find more information on integral and how to compute them in the lesson ["Mathematics of Shading"](/lessons/mathematics-physics-for-computer-graphics/mathematics-of-shading).
 
