@@ -115,7 +115,7 @@ void traceScene(vec3 ray_origin, vec3d ray_direction, const Sphere *sphere)
     if (sphere->intersect(rayOrigin, rayDirection, t0, t1)) { 
         vec3 p1 = ray_origin + ray_direction * t0; 
         vec3 p2 = ray_origin + ray_direction * t1; 
-        float distance = (p2 - p1).length();  //though you could simply do t1 - t0 
+        float distance = (p2 - p1).length();  // though you could simply do t1 - t0 
         float tranmission = exp(-distance * sphere->sigma_a); 
         return background_color * transmission + sphere->scatter * (1 - transmission); 
     } 
@@ -130,7 +130,7 @@ void renderImage()
         for (each column in the image) 
             vec3 ray_dir = computeRay(col, row); 
             pixel_color = traceScene(ray_orig, ray_dir, sphere); 
-            image_buffer[...] = pixel_color;  //store pixel color in image buffer 
+            image_buffer[...] = pixel_color;  // store pixel color in image buffer 
  
     saveImage(image_buffer); 
     ... 
