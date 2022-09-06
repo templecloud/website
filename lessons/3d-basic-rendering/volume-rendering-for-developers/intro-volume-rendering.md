@@ -16,13 +16,13 @@ In this particular chapter, we will just render a plain volume with uniform dens
 
 Instead of providing a lot of detailed background about what volumes are and the equations used to render them, let's dive straight into implementation and derive a more formal understanding of volume rendering from there.
 
-![](/images/upload/volume-rendering-developers/voldev-example.png?)
+![](/images/volume-rendering-developers/voldev-example.png?)
 
 ## Internal Transmittance, Absorption, Particle Density and the Beer's Law
 
 Light reaching our eyes as a result of light being reflected by an object or being emitted by a light source is likely to be absorbed as it travels through a volume of space filled up with some particles. The more particles we have in the volume, the more opaque the volume. From this simple observation, we can lay down some fundamental concepts related to volume rendering: absorption, transmission, and the relationship between how opaque a volume is and the density of particles it contains. For now, we will consider that the density of particles contained by the volume is uniform.
 
-![](/images/upload/volume-rendering-developers/voldev-L0term1.png?)
+![](/images/volume-rendering-developers/voldev-L0term1.png?)
 
 As light travels through the volume in the direction of our eye (which is how images of objects we are seeing are formed in our eye), some of it will be absorbed by the volume as it passes through it. This phenomenon is called **absorption**. What we are interested in (for now) is the amount of light that's being transmitted from the background through the volume. We speak of **internal transmittance** (the amount of light being absorbed by the volume as it travels through it). Internal transmittance can be seen as a value going from 0 (the volume blocks all light) to 1 (well, it's a vacuum so all light is transmitted).
 
@@ -46,7 +46,7 @@ $$
 
 This value plays an important role in simulating multiple scattering in participating media. Check the lessons on subsurface scattering and advanced volume rendering to learn more about these very cool topics.
 
-![Figure 1: the greater the distance or the greater the density the lower the internal transmittance value.](/images/upload/volume-rendering-developers/voldev-expfunction.png)
+![Figure 1: the greater the distance or the greater the density the lower the internal transmittance value.](/images/volume-rendering-developers/voldev-expfunction.png)
 
 The greater the absorption coefficient or the distance, the smaller T. The Beer-Lambert law equation returns a number in the range 0-1. If the distance or the absorption coefficient is 0, the equation returns 1. For very large numbers of either the distance or the density, T gets closer to 0. For a fixed distance, T decreases as we increase the absorption coefficient. For a fixed absorption coefficient, T decreases as we increase the distance. The further light travels in the volume, the more it gets absorbed. The more particles in the volume, the more light gets absorbed. Simple. You can see this effect in figure 1.
 
@@ -89,9 +89,9 @@ Where Transparency here is the 1 - Transmission (also called opacity) and B is t
 
 ## Rendering our First Volume Sphere
 
-![Figure 2: a camera ray passing through a volumetric object.](/images/upload/volume-rendering-developers/voldev-simplesetup.png)
+![Figure 2: a camera ray passing through a volumetric object.](/images/volume-rendering-developers/voldev-simplesetup.png)
 
-![Figure 3: we use the intersections points of the camera rays with the volumetric object to compute the opacity of the volumetric object along the camera rays.](/images/upload/volume-rendering-developers/voldev-lightpassingthrough.png)
+![Figure 3: we use the intersections points of the camera rays with the volumetric object to compute the opacity of the volumetric object along the camera rays.](/images/volume-rendering-developers/voldev-lightpassingthrough.png)
 
 We have all we need to render our first 3D image. We will render a sphere that we assume is filled with some particles using what we have learned so far. We will assume that we are rendering our sphere over some background. The principle is very simple. We first check for an intersection between our camera ray and the sphere. If there's no intersection, then we simply return the background color. If there is an intersection, we then calculate the points on the surface of the sphere where the ray enters and leaves the sphere. From there, we can compute the distance that the ray travels through the sphere and apply Beer's law to compute how much of the light is being transmitted through the sphere. We will assume that light "reflected" (scattered) by the sphere is uniform for now. We will look at lighting later.
 
@@ -139,13 +139,13 @@ void renderImage()
 
 Quite logically, as the density increases, the transmission gets closer to 0 which means that the color of the volumetric sphere dominates over that of the background.
 
-![](/images/upload/volume-rendering-developers/voldev-simplevolspheres.png?)
+![](/images/volume-rendering-developers/voldev-simplevolspheres.png?)
 
 You can see in the images above, that the volume gets more opaque towards the center of the sphere (where the distance traveled by the ray through the sphere is the greatest. You can also see that as the density increases (as sigma_a increases), the sphere becomes more opaque overall. Eureka! You've just rendered your first volumetric sphere and you are halfway to becoming a volume rendering expert.
 
 ## Let's add light! In-Scattering
 
-![Figure 4: light we are seeing through a volumetric objects comes from the background objects (here the blue color) as well as from light sources. Even though light beams when emitted by the light source are not traveling to the eye, some quantity of light is being redirected to the eye as it passes through the volumetric object due to the in-scattering effect.](/images/upload/volume-rendering-developers/voldev-inscattering.png)
+![Figure 4: light we are seeing through a volumetric objects comes from the background objects (here the blue color) as well as from light sources. Even though light beams when emitted by the light source are not traveling to the eye, some quantity of light is being redirected to the eye as it passes through the volumetric object due to the in-scattering effect.](/images/volume-rendering-developers/voldev-inscattering.png)
 
 So far we have a nice image of a volumetric sphere, but what about lighting? If we shine a light onto a volumetric object, we can see that parts of the volume that are more directly exposed to light are brighter than those that are in shadows. Volumes too are illuminated by lights. How do we account for that?
 
@@ -161,7 +161,7 @@ So first thing first, light energy decreases as it travels through the volume ac
 
 If you look at figure 4, note that light that arrives at the eye (along the particular eye/camera ray that is drawn in blue in the figure), is a combination of light coming from the background (our blue background) and light coming from the light source scattered towards the eye due to in-scattering (the yellow ray).
 
-![Figure 5: we need to integrate the light that's be redirected towards the eye due to in-scattering along the segment of the ray that passes through the volumetric object.](/images/upload/volume-rendering-developers/voldev-raymarching1.png)
+![Figure 5: we need to integrate the light that's be redirected towards the eye due to in-scattering along the segment of the ray that passes through the volumetric object.](/images/volume-rendering-developers/voldev-raymarching1.png)
 
 So how do we account for the contribution of a light source? We need to "measure" light that's being scattered towards the eye (along with the camera rays) as the effect of in-scattering. The problem is that we need to account for that effect along the entire part of the camera rays that are intersecting the sphere (figure 5). We need to **"integrate"** light that's being in-scattered along the camera ray, over the range t0-t1.
 
@@ -171,9 +171,9 @@ To solve this problem, we will divide the section of the camera ray that's passi
 
 - Then apply the Beer's law to know by how much the light energy was attenuated as it traveled from P (the point where this light ray entered the sphere) to X (the point along the eye ray where this light ray was scattered towards the viewer).
 
-![Figure 6: marching along the ray in regular steps to estimate our integral using a Riemann sum.](/images/upload/volume-rendering-developers/voldev-lightintegral1.png)
+![Figure 6: marching along the ray in regular steps to estimate our integral using a Riemann sum.](/images/volume-rendering-developers/voldev-lightintegral1.png)
 
-![Figure 7: we can estimate the area under the curve that represent the amount of light scattered along the camera using a Riemann sum. The idea is to break the area under the curve into a sum of small rectangles. The height of each rectangle is given by Li(x) and the width, dx, is user defined.](/images/upload/volume-rendering-developers/voldev-lightintegral2.png)
+![Figure 7: we can estimate the area under the curve that represent the amount of light scattered along the camera using a Riemann sum. The idea is to break the area under the curve into a sum of small rectangles. The height of each rectangle is given by Li(x) and the width, dx, is user defined.](/images/volume-rendering-developers/voldev-lightintegral2.png)
 
 To understand the type of problem we are solving here, we need to look at figures 6 and 7. Figure 6 shows the incoming light arriving along the camera ray which, as you can see in the bottom part of the figure, is a continuous function. Let's call this function Li(x) where x here is any point along the camera ray contained within the range t0-t1. What we need to compute is the "area" below the curve. In mathematics, it is an integral that we can write as:
 
