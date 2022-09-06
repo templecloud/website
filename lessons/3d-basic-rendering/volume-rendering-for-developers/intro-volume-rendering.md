@@ -150,7 +150,7 @@ So far we have a nice image of a volumetric sphere, but what about lighting? If 
 The principle is very simple. Let's imagine the fate of light emitted by a light source traveling through the volume. As it travels through the volume, its intensity gets attenuated due to absorption. And not surprisingly enough, how much is left of the light energy after it has traveled a certain distance in the volume is ruled by Beer's law. In other words, if we know the distance light traveled through the volume, its intensity at that distance is:
 
 ```
-float light_intensity = 10;  //just a number, it could be anything 
+float light_intensity = 10; // just a number, it could be anything 
 float T = exp(-distance_travelled_by_light * volume->absorption_coefficient); 
 light_intensity_attenuation = T * ligth_intensity;
 ```
