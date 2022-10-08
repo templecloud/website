@@ -38,19 +38,25 @@ The unit of these coefficients is a reciprocal distance or inverse length such a
 
 The absorption and scattering coefficient are said to express a [probability density](https://en.wikipedia.org/wiki/Probability_density_function) (just in case you want to do more research on this topic). As it is a probability it should not exceed 1 however, this depends on the unit in which it is measured. For example, if you used millimeters you might get 0.2 for a given medium. But expressed in centimeter and meter this would become 2 and 20 respectively. So in practice, nothing stops you from using values greater than 1.
 
-The fact that the unit of the absorption and scattering coefficients is inverse length is important because if you take the inverse of the coefficients (1 over the absorption of scattering coefficient) you get... a distance. This distance called the mean free path represents the average distance at which a random event occurs:
+<details>
+<summary>Relationship between the coefficients and the mean free path.</summary>
+The fact that the unit of the absorption and scattering coefficients is inverse length is important because if you take the inverse of the coefficients (1 over the absorption of scattering coefficient) you get a distance. This distance called the mean free path represents the average distance at which a random event occurs:
 
 $$
 \text{mean free path} = { {1}\over{\sigma_s}}
 $$ 
 
 This value plays an important role in simulating multiple scattering in participating media. Check the lessons on subsurface scattering and advanced volume rendering to learn more about these very cool topics.
+</details>
 
 ![Figure 1: the greater the distance or the greater the density the lower the internal transmittance value.](/images/volume-rendering-developers/voldev-expfunction.png)
 
 The greater the absorption coefficient or the distance, the smaller T. The Beer-Lambert law equation returns a number in the range 0-1. If the distance or the absorption coefficient is 0, the equation returns 1. For very large numbers of either the distance or the density, T gets closer to 0. For a fixed distance, T decreases as we increase the absorption coefficient. For a fixed absorption coefficient, T decreases as we increase the distance. The further light travels in the volume, the more it gets absorbed. The more particles in the volume, the more light gets absorbed. Simple. You can see this effect in Figure 1.
 
+<details>
+<summary>Beer & gemstones.</summary>
 An absorbing-only medium is transparent (not translucid) but dims images seen through it (e.g.: beer, wine, gemstones, tinted glass).
+</details>
 
 ## Rendering a Volume Over a Uniform Background
 
@@ -95,7 +101,10 @@ We have all we need to render our first 3D image. We will render a sphere that w
 
 ![Figure 3: we use the intersections points of the camera rays with the volumetric object to compute the opacity of the volumetric object along the camera rays.](/images/volume-rendering-developers/voldev-lightpassingthrough.png)
 
+<details>
+<summary>Implementation detail.</summary>
 Technically, we don't need to compute the points where the ray enters and leaves the sphere to get the distance between the points. We simply need to subtract tmin to tmax (the ray parametric distances along the camera ray where the ray intersects the sphere. In the following example, we calculate them to emphasize that what we care about here is the distance between these two points.
+</details>
 
 ```
 class Sphere : public Object 
@@ -183,6 +192,9 @@ $$
 
 As we just said, the result of an integral (which is a number) is defined to be the (net signed) area under the curve (the function Li(x)) as illustrated in Figure 6. The problem in our case is that we can't compute this area using an analytical solution. But we can use a trick to approximate this area by breaking it down into simpler shapes we know the area of: rectangles (as shown in Figure 7). We sample Li(x) along the curve at regular intervals which we know the width of (dx) and the area of the resulting rectangle can then be computed as Li(x) multiplied by dx (x is in the middle of the interval). By summing up the area of all the rectangles, we get an approximation of the area under the curve. Et voila! This technique is known as the Riemann sum (the idea of approximating a shape whose area we don't know with areas we do know goes back to the Greeks).
 
+<details>
+<summary>Going further.</summary>
 You can find more information on integral and how to compute them in the lesson ["Mathematics of Shading"](/lessons/mathematics-physics-for-computer-graphics/mathematics-of-shading).
+</details>
 
 So how does it translate into code?

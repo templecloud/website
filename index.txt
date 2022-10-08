@@ -2,9 +2,9 @@
 mathematics-physics-for-computer-graphics/geometry/
 
 @3D Rendering for Beginners:Best read in chronological order (top to bottom).
-3d-basic-rendering/introduction-to-ray-tracing/
-3d-basic-rendering/get-started/
-3d-basic-rendering/rendering-3d-scene-overview/
+3d-basic-rendering/introduction-to-ray-tracing/*
+3d-basic-rendering/get-started/*
+3d-basic-rendering/rendering-3d-scene-overview/*
 3d-basic-rendering/computing-pixel-coordinates-of-3d-point/
 3d-basic-rendering/3d-viewing-pinhole-camera/
 3d-basic-rendering/rasterization-practical-implementation/
@@ -14,12 +14,13 @@ mathematics-physics-for-computer-graphics/geometry/
 3d-basic-rendering/minimal-ray-tracer-rendering-simple-shapes/
 3d-basic-rendering/ray-tracing-rendering-a-triangle/
 3d-basic-rendering/introduction-polygon-mesh/
+3d-basic-rendering/ray-tracing-polygon-mesh/
 3d-basic-rendering/transforming-objects-using-matrices/
 3d-basic-rendering/introduction-to-shading/
 3d-basic-rendering/phong-shader-BRDF/
 3d-basic-rendering/global-illumination-path-tracing/
 3d-basic-rendering/introduction-acceleration-structure/
-3d-basic-rendering/volume-rendering-for-developers/
+3d-basic-rendering/volume-rendering-for-developers/*
 
 @Accelerating 3D Rendering:This series of lessons marks the beginning of the advanced section in which we will explore various modern ray-tracing frameworks and/or solutions. Best read in chronological order. This section is currently being written (Q3/Q4 2022) and will consequently be regularly changing.
 accelerating-rendering/modern-rendering-architecture/

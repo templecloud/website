@@ -1,2 +1,10 @@
 @Rendering an Image of a 3D Scene: an Overview
 computer-discrete-raster.md:It All Starts with a Computer and a Computer Screen
+rendering-3d-scene.md:And It Follows with a 3D Scene
+3d-rendering-overview.md:An Overview of the Rendering Process: Visibility and Shading
+perspective-projection.md:Perspective Projection
+visibility-problem.md:The Visibility Problem
+light-simulator.md:A Light Simulator
+introduction-light-transport.md:Light Transport
+introduction-shading.md:Shading
+summary-rendering.md:Summary and Other Considerations About Rendering
