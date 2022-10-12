@@ -54,7 +54,6 @@ But why do we need this conversion? To solve the visibility problem we will use 
   - Find the pixel the point maps to (using the projected point raster coordinates), and store the distance of that point to the eye, in a special list of points (called the depth list), maintained by that pixel.
 
   <details>
-  <summary>Question from a reader.</summary>
   _You say, project all points onto the screen. How do we find these points in the first place?"_
   Very good question. Technically, we would break down the triangles or the polygons objects are made of, into smaller geometry elements no bigger than a pixel when projected onto the screen. In real-time APIs (OpenGL, DirectX, Vulkan, Metal, etc.) this is what we generally refer to as fragments. Check the lesson on the REYES algorithm in this section to learn how this works in more detail.
   </details>  
@@ -62,7 +61,6 @@ But why do we need this conversion? To solve the visibility problem we will use 
 - At the end of the process, sort the points in the list of each pixel, by order of increasing distance. As a result of this process, the point visible for any given pixel in the image is the first point from that pixel's list.
 
 <details>
-<summary>Question from a reader.</summary>
 _Why do points need to be sorted according to their depth?_
 The list needs to be sorted because points are not necessarily ordered in depth when projected onto the screen. Assuming you insert points by adding them at the top of the list, you may project a point B further from the eye than a point A, after you projected A. In which case B will be the first point in the list, even though its distance to the eye, is greater than the distance to A. Thus sorting is required.
 </details>
@@ -77,9 +75,7 @@ An algorithm based on this approach, is called a **depth sorting algorithm** (a 
 Keep in mind that while this may sound like old fashion to you, all graphics cards are using one implementation of the z-buffer algorithm, to produce images. These algorithms (at least z-buffering) are still commonly used today.
 
 <details>
-<summary>When opacity gets in the way.</summary>
-
-Why do we need to keep a list of points? Storing the point with the shortest distance to the eye doesn't require storing all the points in a list. Indeed, you could very well do the following thing:
+Why do we need to keep a list of points? Storing the point with the shortest distance to the eye shouldn't require storing all the points in a list. Indeed, you could very well do the following thing:
 
 - For each pixel in the image, set the variable z to infinity.
 - For each point in the scene.

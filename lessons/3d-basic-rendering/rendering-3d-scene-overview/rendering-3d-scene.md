@@ -71,7 +71,7 @@ When ray tracing is used, it is not always necessary to convert an object into a
 A very good and simple example of a shape whose intersection with a ray can be found using the geometric and algebraic method is a sphere. You can find both methods explained in the lesson [Rendering Simple Shapes](/lessons/3d-basic-rendering).
 
 <details>
-<summary>Difference between parametric and implict surfaces.</summary>
+_What is the difference between parametric and implict surfaces_
 Earlier on in the lesson, we mentioned that NURBS and Subdivision surfaces were also somehow defined mathematically. While this is true, there is a difference between NURBS and implicit surfaces (Subdivision surface can also be considered as a separate case, in which the base mesh is processed to produce a smoother and higher resolution mesh). NURBS are defined by what we call a parametric equation, an equation that is the function of one or several parameters. In 3D, the general form of this equation can be defined as follow: 
 
 $$
@@ -120,8 +120,8 @@ You also generally get better performances if you limit your code to rendering o
 Limiting yourself to rendering one primitive only, allows you to build common operations directly into the hardware (you can build a component that is extremely good at performing these operations). Generally, triangles are nice to work with for plenty of reasons (including those we already mentioned). They are always coplanar, they are easy to subdivide into smaller triangles yet they are indivisible. The maths to interpolate texture coordinates across a triangle are also simple (something we will be using later to apply a texture to the geometry). This doesn't mean that a GPU could not be designed to render any other kind of primitives efficiently (such as quads).
 
 <details>
-<summary>Triangles vs. Quads</summary>
-Be careful though the triangle is not the only possible primitive used for rendering. The quad is also sometimes used. Modeling or surfacing algorithms such as those that generate subdivision surfaces only work with quads. This is why quads are commonly found in 3D models. Why wasting time triangulating these models if we could render quads as efficiently as triangles? It happens that even in the context of ray-tracing, using quads can sometimes be better than using triangles (in addition to not requiring a triangulation which is a waste when the model is already made out of quads as just suggested). Ray-tracing quads will be addressed in the advanced section on ray-tracing.
+_Can I use quads instead of triangles?_
+The triangle is not the only possible primitive used for rendering. The quad can also be used. Modeling or surfacing algorithms such as those that generate subdivision surfaces only work with quads. This is why quads are commonly found in 3D models. Why wasting time triangulating these models if we could render quads as efficiently as triangles? It happens that even in the context of ray-tracing, using quads can sometimes be better than using triangles (in addition to not requiring a triangulation which is a waste when the model is already made out of quads as just suggested). Ray-tracing quads will be addressed in the advanced section on ray-tracing.
 </details>
 
 ## A 3D Scene Is More Than Just Geometry
