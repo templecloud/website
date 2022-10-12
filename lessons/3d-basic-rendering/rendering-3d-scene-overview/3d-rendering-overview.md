@@ -75,14 +75,16 @@ You must always keep this distinction in mind. When you study a particular techn
 - Rendering a Mesh Using Ray Tracing
 - Transform Objects using Matrices
 - Rendering the Utah Teapot
-- The REYES algorithm: an Example of Rasterisation
+- The Rasterisation Algorithm
+- ...
 |-cell
 - The Rendering Equation
 - Light Transport Algorithms: e.g. Path Tracing
-- Area LightsTexturing
-- TexturingMotion Blur
+- Area Lights
+- Texturing
 - Motion Blur
 - Depth of Field
+- ...
 |-
 
 We will briefly detail both steps in the next chapters.
