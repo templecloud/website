@@ -64,9 +64,9 @@ We are using the standard rules though we added a few that are specific to Scrat
 - inline-code: \'example of inline code\' (surround the text with a `  - back single quote).
 - code. Create a new line starting with \```,  add your code then close the block with a new line starting with \```.
   ```
-  \```
-  My code goes here
-  \```
+   ```
+   My code goes here
+   ```
   ```
 
 **Rules that are specific to Scratchapixel**:
