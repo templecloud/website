@@ -66,7 +66,7 @@ We are using the standard rules though we added a few that are specific to Scrat
 - **Code**. Create a new line starting with \```,  add your code then close the block with a new line starting with \```.
 
 **Rules that are specific to Scratchapixel**:
-- **Note**: use \<details>\</details>. This is the only html tag that you should be using in a text. It can be used when you want to add a not that you think is a detail or not as relevant as the core of the content.
+- **Note**: use \<details>\</details>. This is the only HTML tag that you should be used in a text. It can be used when you want to add a note that you think is a detail or not as relevant as the core of the content.
   ```
   <details>
   <summary>This is the title of this note</summary>
@@ -74,14 +74,14 @@ We are using the standard rules though we added a few that are specific to Scrat
   </details>
   ```
   Please respect the formatting (\<details>\</details> tags need to be on their own line). You can use the \<summary>\</summary> to give the note a title.
-- **Important**: use !!!. This tag can be used when you want to put the emphasis on some content. You need to start a line with three ! and close the block with another three !.
+- **Important**: use !!!. This tag can be used when you want to emphasize some content. You need to start a line with three ! and close the block with another three !.
   ```
   !!!!
   This is a very important section.
-  You can use multiple lines and list if you need to.
+  You can use multiple lines and lists if you need to.
   !!!
   ```
-- **Tables**: tables are not handled in the way they are typically handled in Mardown. While Markdown is "designed" to make the text sort of readible in ascii, the  accepted rule for building table in MD is just making the life of the editor a real pain when the cells contain multiple lines which is almost all the case when it comes to real world work.
+- **Tables**: tables are not handled in the way they are typically handled in Markdown. While Markdown is "designed" to make the text sort of readable in ASCII, the accepted rule for building a table in MD is just making the life of the editor a real pain when the cells contain multiple lines which is almost all the case when it comes to real world work.
   ```
   |-table{My header title 1,My header title 2}
   |-row
@@ -97,7 +97,7 @@ We are using the standard rules though we added a few that are specific to Scrat
   |-cell
   |-
   ```
-  The syntax is hopefully self-explanatory. As you can see if feels similar to the way you lay a table in HTML. Be mindful to not create more cells than they are number of cells in the header row declaration. For the header cell declaration put the text of the cells better {} and separate them with a comma (leaving no space between the text and the commas and no space between the text and the {}).
+  The syntax is hopefully self-explanatory. As you can see it feels similar to the way you lay a table in HTML. Be mindful to not create more cells than they are cells in the header row declaration. For the header cell declaration put the text of the cells better {} and separate them with a comma (leaving no space between the text and the commas and no space between the text and the {}).
 
 ### Style
 
