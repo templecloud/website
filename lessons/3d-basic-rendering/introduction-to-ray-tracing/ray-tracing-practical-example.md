@@ -95,7 +95,7 @@ for (int j = 0; j < imageHeight; ++j) {
 
 Many years ago, researcher Paul Heckbert wrote a ray tracer that could "fit on a business card". The idea was to write a minimal ray tracer in C/C++, so small that he could print it out on the back of his business card (more information on this idea can be found in an article he wrote in Graphics Gems IV). Many programmers since then, have tried this coding exercise. Below, you can find a version written by Andrew Kensler. The image on the left is the result of his program. Note the depth of field effect (objects get blurred in the distance). It is quite amazing to be able to create a fairly complex image with such few lines of code.
 
-```
+```wrap
 // minray > minray.ppm
 #include <stdlib.h>
 #include <stdio.h>

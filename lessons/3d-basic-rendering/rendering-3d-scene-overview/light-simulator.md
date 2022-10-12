@@ -8,7 +8,9 @@ When light comes in contact with a perfect mirror-like surface, it is reflected 
 
 ## Transparency
 
-![](/images/rendering-3d-scene-overview/transparency.png) ![](/images/upload/rendering-3d-scene-overview/transparent-raygraph.png)
+![](/images/rendering-3d-scene-overview/transparency.png) 
+
+![](/images/rendering-3d-scene-overview/transparent-raygraph.png)
 
 In the case of transparent objects (imagine a pane of glass for example), light is reflected and refracted. The term "transmitted" is also often used in place of "refracted", but the terms mean two slightly different things. By transmitted we mean, a fraction of the incident light enters the object on one side and leaves the object on the other side (which is why we see objects through a window). However, as soon as it comes in contact with the surface of a transparent object, light changes direction, and this is what we call refraction. It is the effect of light rays being bent as they travel from one transparent medium such as air to another such as water or glass (it doesn't matter if it goes from air to water or water to air, light rays are still being bent in one way or another). As with reflection, the refraction direction can be computed using **Snell's law**. How much light is being reflected vs refracted is given by the **Fresnel's equation**. These two equations are very important in rendering. The graph on the right, shows a primary ray going through a block of glass. The ray is refracted, then travels through the glass, is refracted again when it leaves the glass, and eventually hits the surface below it. If that surface was an object, then this is what we would see through the glass.
 
@@ -56,7 +58,9 @@ Most of the effects we described so far have something to do with the object's m
 
 Don't worry if you are curious about knowing and understanding how all these effects can be simulated. We will study them all in due time. At this point of the lesson, it's only important to look at some images of the real world, analyze what lighting/shading effects we can observe in these images, so that we can reproduce them later on.
 
+!!!
 Remember from this chapter, that a diffuse surface appears equally bright from all viewing directions, but a specular surface's brightness varies with the viewing direction (if you move around a mirror, the image you see in the mirror will change). We say that diffuse interaction is **view-independent** while specular interaction is **view-dependent**.
+!!!
 
 ## Light Transport and Shading: Two Related But Different Problems
 
@@ -102,9 +106,12 @@ We already provided some information about this question in the previous paragra
 
 Now, as suggested, ray tracing is not a miraculous solution though. It comes with its own set of issues. A naive implementation of ray tracing is simple. One that is efficient, requires a lot of hard work. Ray tracing is still computationally expensive and even if computers today are far more powerful than ten years ago, the complexity of the scene we render has also dramatically increased, and render times are still typically very long (see the note below).
 
+<details>
+This is called the Blinn's Law or the paradox of increasing performance. "What is Blinn's Law? Most of you are familiar with Moore's law which states that the number of transistors on a chip will double approximately every two years. This means that anyone using a computer will have access to increased performance at a predictable rate. For computer graphics, potential benefits relative to increasing computational power are accounted for with this concept. The basic idea behind Blinn's law is that if an animation studio invests ten hours of computation time per frame of animation today, they will invest ten hours per frame ten years from now, regardless of any advances in processing power." ([courtesy of www.boxtech.com](http://boxxblogs.blogspot.co.uk)).
+
 ![](/images/rendering-3d-scene-overview/blinnlaw.jpg)
 
-This is called the Blinn's Law or the paradox of increasing performance. "What is Blinn's Law? Most of you are familiar with Moore's law which states that the number of transistors on a chip will double approximately every two years. This means that anyone using a computer will have access to increased performance at a predictable rate. For computer graphics, potential benefits relative to increasing computational power are accounted for with this concept. The basic idea behind Blinn's law is that if an animation studio invests ten hours of computation time per frame of animation today, they will invest ten hours per frame ten years from now, regardless of any advances in processing power." ([courtesy of www.boxtech.com](http://boxxblogs.blogspot.co.uk)).
+</details>
 
 So you still need to aggressively optimize your code, to make it practical to work with (especially if you use it in a production environment). But if you put the technical problems aside for a moment, the main drawback of ray tracing is the noise (the technical term is variance) it introduces in the image and the difficulty of simulating some lighting effects such as caustics when you use backward ray tracing (tracing the rays back from the eye to the source). One way of solving both issues is brute force: simply use more rays to improve the quality of simulation, however, the more rays you use the more expensive the image. Thus again, a lot of research in rendering went (and still goes) into finding solutions to these two particular problems. Light transport algorithms as we will explain in the next chapter, are algorithms exploring the different ways in which light transport can be simulated. And as we will see, ray tracing can also be combined with some other techniques to make it more efficient to simulate some lighting effects which are very hard (as in very expensive) to simulate with ray tracing alone.
 

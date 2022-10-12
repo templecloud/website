@@ -1,4 +1,4 @@
-An image of a 3D scene can be generated in multiple ways, but of course, any way you choose should produce the same image for any given scene. In most cases, the goal of rendering is to create a photo-realistic image (non-photorealistic rendering or NPR is also possible). But what does it mean, and how can this be achieved? Photorealistic means essentially that we need to create an image so "real" that it looks like a photograph or (if photography didn't exist) that it would look like reality to our eyes (like the reflection of the world off the surface of a mirror). How do we do that? By understanding the laws of physics that make objects appear the way they do, and simulating these laws on the computer. In other words, rendering is nothing else than simulating the laws of physics responsible for making up the world we live in, as it appears to us. Many laws are contributing to making up this world, but fewer contribute to how it looks. For example, gravity, which plays a role in making objects fall (gravity is used in solid-body simulation), has little to do with the way orange looks like. Thus, in rendering, we will be interested in what makes objects look the way they do, which is essentially the result of the way light propagates through space and interacts with objects (or matter more precisely). This is what we will be simulating.
+An image of a 3D scene can be generated in multiple ways, but of course, any way you choose should produce the same image for any given scene. In most cases, the goal of rendering is to create a photo-realistic image (non-photorealistic rendering or NPR is also possible). But what does it mean, and how can this be achieved? Photorealistic means essentially that we need to create an image so "real" that it looks like a photograph or (if photography didn't exist) that it would look like reality to our eyes (like the reflection of the world off the surface of a mirror). How do we do that? By understanding the laws of physics that make objects appear the way they do, and simulating these laws on the computer. In other words, rendering is nothing else than simulating the laws of physics responsible for making up the world we live in, as it appears to us. Many laws are contributing to making up this world, but fewer contribute to how it looks. For example, gravity, which plays a role in making objects fall (gravity is used in solid-body simulation), has little to do with the way an orange looks like. Thus, in rendering, we will be interested in what makes objects look the way they do, which is essentially the result of the way light propagates through space and interacts with objects (or matter more precisely). This is what we will be simulating.
 
 ## Perspective Projection and the Visibility Problem
 
@@ -59,12 +59,30 @@ In this chapter, we learned that rendering can essentially be seen as an essenti
 - The perspective projection and visibility problem on one hand,
 - And the simulation of light (light transport) as well the simulation of the appearance of objects (shading) on the other.
 
+<details>
 Have you ever heard the term **graphics or rendering pipeline**? The term is more often used in the context of real-time rendering APIs (such as OpenGL, DirectX, or Metal). The rendering process as explained in this chapter can be decomposed into at least two steps, visibility, and shading. Both steps though can be decomposed into smaller steps or stages (which is the term more commonly used). Steps or stages are generally executed in sequential order (the input of any given stage generally depends on the output of the preceding stage). This sequence of stages forms what we call the rendering pipeline.
+</details>
 
 You must always keep this distinction in mind. When you study a particular technique always try to think whether it relates to one or the other. Most lessons from this section (and the advanced rendering section) fall within one of these categories:
 
-| Projection/Visibility Problem | Light Transport/Shading |
-| --- | --- |
-| * Perspetive Projection Matrix<br>* Rays and Cameras<br>* Rendering a Triangle with Ray Tracing<br>* Rendering Simple Shapes with Ray Tracing<br>* Rendering a Mesh Using Ray Tracing<br>* Transform Objects using Matrices<br>* Rendering the Utah Teapot<br>* The REYES algorithm: an Example of Rasterisation | * The Rendering Equation<br>* Example of a Light Transport Algorithm: Path Tracing<br>* Area Lights<br>* Shaders and BRDFs<br>* Texturing<br>* (Motion Blur)<br>* (Depth of Field) |
+|-table{Projection/Visibility Problem,Light Transport/Shading}
+|-row
+|-cell
+- Perspetive Projection Matrix
+- Rays and Cameras
+- Rendering a Triangle with Ray Tracing
+- Rendering Simple Shapes with Ray Tracing
+- Rendering a Mesh Using Ray Tracing
+- Transform Objects using Matrices
+- Rendering the Utah Teapot
+- The REYES algorithm: an Example of Rasterisation
+|-cell
+- The Rendering Equation
+- Light Transport Algorithms: e.g. Path Tracing
+- Area LightsTexturing
+- TexturingMotion Blur
+- Motion Blur
+- Depth of Field
+|-
 
 We will briefly detail both steps in the next chapters.

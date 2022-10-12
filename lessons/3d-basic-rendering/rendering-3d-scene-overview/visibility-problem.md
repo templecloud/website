@@ -41,7 +41,7 @@ if (P_proj_raster.x == width) P_proj_raster.x = width - 1;
 if (P_proj_raster.y == height) P_proj_raster.y = height - 1; 
 ```
 
-This conversion process is explained in details in the lesson where we explain how the concept of camera is translated to the 3D world.
+This conversion process is explained in detail in the lesson [3D Viewing: the Pinhole Camera Model](/lessons/3d-basic-rendering/3d-viewing-pinhole-camera/).
 
 There are a few things to notice in this code. First that the original point P, the projected point in screen space, and NDC space all use the Vec3f or Vec2f types in which the coordinates are defined as real (floats). However, the final point in raster space uses the Vec2i type in which coordinates are defined as integers (the coordinate of a pixel in the image). Arrays in programming, are 0-indexed, thereby, the coordinates of a point in raster point should never be greater than the width of the image minus one or the image height minus one. However, this may happen when P's coordinates in screen space are exactly 1 in either dimension. The code checks this case (lines 14-15), and clamps the coordinates to the right range if it happens. Also, the origin of the NDC space coordinate is located in the lower-left corner of the image, but the origin of the raster space system is located in the upper left corner (see figure 3). Therefore, the y coordinate needs to be inverted when converted from NDC to raster space (check the difference between lines 8 and 9 in the code).
 

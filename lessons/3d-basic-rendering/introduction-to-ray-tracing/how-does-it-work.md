@@ -1,4 +1,4 @@
-Note: you can also check the lesson [An Overview of the Ray-Tracing Rendering Technique](/lessons/3d-basic-rendering/ray-tracing-overview/ray-tracing-rendering-technique-overview) if you are interested in learning about ray-tracing specifically. This lesson is more of a general introduction to 3D rendering.
+Note: this lesson is more of a general introduction to 3D rendering. You can also check the lesson [An Overview of the Ray-Tracing Rendering Technique](/lessons/3d-basic-rendering/ray-tracing-overview/ray-tracing-rendering-technique-overview) if you are interested in learning about ray-tracing specifically.
 
 To begin this lesson, we will explain how a three-dimensional scene is made into a viewable two-dimensional image. Once we understand that process and what it involves, we will be able to utilize a computer to simulate an "artificial" image by similar methods. We like to think of this section as the theory that more advanced CG is built upon.
 

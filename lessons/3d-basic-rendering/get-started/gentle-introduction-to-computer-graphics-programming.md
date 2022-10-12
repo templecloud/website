@@ -225,7 +225,7 @@ corner: 7 x:170.666656 y:341.333344</div>
 ```
 You can use a paint program to create an image (set its size to 512x512) and add dots at the pixel coordinates that you computed with the program. Then connect the dots to form the edges of the box, and you will get an actual image of the box (as shown in the video below). Pixel coordinates are integers, so you will need to round off the numbers given by the program.
 
-![](https:://www.youtube.com/embed/BiQJxdoL4K8)
+<iframe class="video" src="//www.youtube.com/embed/BiQJxdoL4K8" frameborder="0" allowfullscreen></iframe>
 
 ## What Have We Learned?
 
