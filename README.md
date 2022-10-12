@@ -63,7 +63,7 @@ We are using some of the standard rules but we added a few that are specific to 
 - **Quote**: \> my quote text
 - **Table**: see below
 - **Inline-code**: \'example of inline code\' (surround the text with a `  - back single quote).
-- **Code**. Create a new line starting with \```,  add your code then close the block with a new line starting with \```.
+- **Code**. Create a new line starting with \```,  add your code then close the block with a new line starting with \```. You can add the word `wrap` just after the first three ! (opening tag). That will force the code within the block to wrap (it will overflow in x otherwise if the lines are longer than the column width).
 
 **Rules that are specific to Scratchapixel**:
 - **Note**: use \<details>\</details>. This is the only HTML tag that you should be used in a text. It can be used when you want to add a note that you think is a detail or not as relevant as the core of the content.
