@@ -53,24 +53,20 @@ If you wish to write original content please get in touch with us directly.
 We are using the standard rules though we added a few that are specific to Scratchapixel. Because in Scratchapixel we want to have a little something a little more sophisticated than what's offered by the basic rules (like notes, marking a paragraph as important, etc.).
 
 **Standard Markdown rules**:
-- \_italic_
-- \*\*bold**
-- \!\[Coment about the image](/relative/path/to/image.png)
-- \## heading 2 (space after \##).
-- \# heading 1 (space after \#). Generally do not use h1's. They are reserved to lessons' titles. Lesson's content should only contain h2's.
-- List: start a paragraph with a - (numbered list not supported now). Don't forget to put a space after the sign -
-- \> quote
-- table: see below
-- inline-code: \'example of inline code\' (surround the text with a `  - back single quote).
-- code. Create a new line starting with \```,  add your code then close the block with a new line starting with \```.
-  ```
-   ```
-   My code goes here
-   ```
-  ```
+- **Italic**: \_italic_
+- **Bold**: \*\*bold**
+- **Image**: \!\[Coment about the image](/relative/path/to/image.png)
+- **Link**: \[Link](/relative/path/to/content)
+- **Heading 2**:  \## Some text (space after \##).
+- **Heading 1**:  \# Some text (space after \#). Generally do not use h1's. They are reserved to lessons' titles. Lesson's content should only contain h2's.
+- **List**: start a paragraph with a - (numbered list not supported now). Don't forget to put a space after the sign -
+- **Quote**: \> my quote text
+- **Table**: see below
+- **Inline-code**: \'example of inline code\' (surround the text with a `  - back single quote).
+- **Code**. Create a new line starting with \```,  add your code then close the block with a new line starting with \```.
 
 **Rules that are specific to Scratchapixel**:
-- \<details>\</details>. This is the only html tag that you should be using in a text. It can be used when you want to add a not that you think is a detail or not as relevant as the core of the content.
+- **Note**: use \<details>\</details>. This is the only html tag that you should be using in a text. It can be used when you want to add a not that you think is a detail or not as relevant as the core of the content.
   ```
   <details>
   <summary>This is the title of this note</summary>
@@ -78,14 +74,14 @@ We are using the standard rules though we added a few that are specific to Scrat
   </details>
   ```
   Please respect the formatting (\<details>\</details> tags need to be on their own line). You can use the \<summary>\</summary> to give the note a title.
-- !!! This tag can be used when you want to put the emphasis on some content. You need to start a line with three ! and close the block with another three !.
+- **Important**: use !!!. This tag can be used when you want to put the emphasis on some content. You need to start a line with three ! and close the block with another three !.
   ```
   !!!!
   This is a very important section.
   You can use multiple lines and list if you need to.
   !!!
   ```
-- Tables: tables are not handled in the way they are typically handled in Mardown. While Markdown is "designed" to make the text sort of readible in ascii, the  accepted rule for building table in MD is just making the life of the editor a real pain when the cells contain multiple lines which is almost all the case when it comes to real world work.
+- **Tables**: tables are not handled in the way they are typically handled in Mardown. While Markdown is "designed" to make the text sort of readible in ascii, the  accepted rule for building table in MD is just making the life of the editor a real pain when the cells contain multiple lines which is almost all the case when it comes to real world work.
   ```
   |-table{My header title 1,My header title 2}
   |-row
@@ -102,6 +98,7 @@ We are using the standard rules though we added a few that are specific to Scrat
   |-
   ```
   The syntax is hopefully self-explanatory. As you can see if feels similar to the way you lay a table in HTML. Be mindful to not create more cells than they are number of cells in the header row declaration. For the header cell declaration put the text of the cells better {} and separate them with a comma (leaving no space between the text and the commas and no space between the text and the {}).
+
 ### Style
 
 For style recommendations, check the Philosophy Behind Writing Content for Scratchapixel section below.
