@@ -50,7 +50,7 @@ If you wish to write original content please get in touch with us directly.
 
 ### Markdown Rules
 
-We are using the standard rules though we added a few that are specific to Scratchapixel. Because in Scratchapixel we want to have a little something a little more sophisticated than what's offered by the basic rules (like notes, marking a paragraph as important, etc.).
+We are using some of the standard rules but we added a few that are specific to Scratchapixel. Because we want to have something a little more sophisticated (and sometimes more control too) than what's possible with the basic rules (like adding notes, marking a paragraph as important, etc.).
 
 **Standard Markdown rules**:
 - **Italic**: \_italic_
