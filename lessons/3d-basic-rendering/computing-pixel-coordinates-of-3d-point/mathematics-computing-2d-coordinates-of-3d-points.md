@@ -104,7 +104,7 @@ $$P_{local} = P_{world} * M_{inverse}$$
 
 Or in mathematical notation:
 
-$$(P_{local} = P_{world} * M^{-1}$$
+$$P_{local} = P_{world} * M^{-1}$$
 
 As you may have guessed already, the inverse of M is also called the **world-to-local** coordinate system (it defines where the world coordinate system is with respect to the local coordinate system frame of reference):
 
@@ -357,26 +357,30 @@ bool computePixelCoordinates(
     // matrix in this function. It should be done outside the function, only once
     // and the worldToCamera should be passed to the function instead. 
     // We only compute the inverse of this matrix in this function ...
-     Vec3f pCamera;
-     Matrix44f worldToCamera = cameraToWorld.inverse();
-     worldToCamera.multVecMatrix(pWorld, pCamera);
-     // Coordinates of the point on the canvas. Use perspective projection.
-     Vec2f pScreen;
-     pScreen.x = pCamera.x / -pCamera.z;
-     pScreen.y = pCamera.y / -pCamera.z;
-     // If the x- or y-coordinate absolute value is greater than the canvas width 
-     // or height respectively, the point is not visible
-     if (std::abs(pScreen.x) > canvasWidth || std::abs(pScreen.y) > canvasHeight)
-         return false;
-     // Normalize. Coordinates will be in the range [0,1]
-     Vec2f pNDC;
-     pNDC.x = (pScreen.x + canvasWidth / 2) / canvasWidth;
-     pNDC.y = (pScreen.y + canvasHeight / 2) / canvasHeight;
-     // Finally convert to pixel coordinates. Don't forget to invert the y coordinate
-     pRaster.x = std::floor(pNDC.x * imageWidth);
-     pRaster.y = std::floor((1 - pNDC.y) * imageHeight);
+    Vec3f pCamera;
+    Matrix44f worldToCamera = cameraToWorld.inverse();
+    worldToCamera.multVecMatrix(pWorld, pCamera);
+    
+	// Coordinates of the point on the canvas. Use perspective projection.
+    Vec2f pScreen;
+    pScreen.x = pCamera.x / -pCamera.z;
+    pScreen.y = pCamera.y / -pCamera.z;
+    
+	// If the x- or y-coordinate absolute value is greater than the canvas width 
+    // or height respectively, the point is not visible
+    if (std::abs(pScreen.x) > canvasWidth || std::abs(pScreen.y) > canvasHeight)
+        return false;
+    
+	// Normalize. Coordinates will be in the range [0,1]
+    Vec2f pNDC;
+    pNDC.x = (pScreen.x + canvasWidth / 2) / canvasWidth;
+    pNDC.y = (pScreen.y + canvasHeight / 2) / canvasHeight;
+    
+	// Finally convert to pixel coordinates. Don't forget to invert the y coordinate
+    pRaster.x = std::floor(pNDC.x * imageWidth);
+    pRaster.y = std::floor((1 - pNDC.y) * imageHeight);
 
-     return true;
+    return true;
 }
 
 int main(...)
@@ -386,13 +390,14 @@ int main(...)
     Vec3f pWorld(...);
     float canvasWidth = 2, canvasHeight = 2;
     uint32_t imageWidth = 512, imageHeight = 512;
-    // The 2D pixel coordinates of pWorld in the image if the point is visible
+    
+	// The 2D pixel coordinates of pWorld in the image if the point is visible
     Vec2i pRaster;
     if (computePixelCoordinates(pWorld, cameraToWorld, canvasWidth, canvasHeight, imageWidth, imageHeight, pRaster)) {
-       std::cerr << "Pixel coordinates " << pRaster << std::endl;
+        std::cerr << "Pixel coordinates " << pRaster << std::endl;
     }
     else {
-       std::cert << Pworld << " is not visible" << std::endl;
+        std::cert << Pworld << " is not visible" << std::endl;
     }
     ...
 
