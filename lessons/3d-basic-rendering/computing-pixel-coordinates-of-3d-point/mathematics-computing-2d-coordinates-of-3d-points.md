@@ -94,7 +94,7 @@ $$
 
 ![Figure 7: to transform a point that is defined in the local coordinate system to world space, we multiply the point's local coordinates by M (in 7a the coordinate systems coincide. They have been shifted slightly to make them visible).](/images/perspective-matrix/coordsys2.png?)
 
-By default, the local coordinate system coincides with the world coordinate system (the cube vertices are defined with respect to this local coordinate system). This is illustrated in Figure 7a. Then, we apply the matrix M to the local coordinate system, which has for effect to change its position, scale, and rotation (this depends on the matrix values). This is illustrated in Figure 7b. So before we apply the transform, the coordinates of the highlighted vertex in Figures 6 and 7 (the purple dot) are the same in both coordinate systems (since the frames of reference coincide). But after transformation, the world and local coordinates of the points are different (Figures 7a and 7b). To calculate the world coordinates of that vertex we need to multiply the point's original coordinates by the **local-to-world matrix**: we call it **local-to-world** because it defines the coordinate system with respect to the world coordinate system. This is pretty logical! If you transform the local coordinate system and if you want the cube to move with this coordinate system, you need to apply to the cube vertices the same transform as the one applied to the local coordinate system:
+By default, the local coordinate system coincides with the world coordinate system (the cube vertices are defined with respect to this local coordinate system). This is illustrated in Figure 7a. Then, we apply the matrix M to the local coordinate system, which has for effect to change its position, scale, and rotation (this depends on the matrix values). This is illustrated in Figure 7b. So before we apply the transform, the coordinates of the highlighted vertex in Figures 6 and 7 (the purple dot) are the same in both coordinate systems (since the frames of reference coincide). But after transformation, the world and local coordinates of the points are different (Figures 7a and 7b). To calculate the world coordinates of that vertex we need to multiply the point's original coordinates by the **local-to-world matrix**: we call it **local-to-world** because it defines the coordinate system with respect to the world coordinate system. This is pretty logical! If you transform the local coordinate system and if you want the cube to move with this coordinate system, you want to apply to the cube vertices the same transformation that the one applied to the local coordinate system, which you do by multiplying the cube's vertices by the local-to-world matrix (denoted \(M\) here for the sake of simplicity):
 
 $$P_{world} = P_{local} * M$$
 
@@ -106,7 +106,7 @@ Or in mathematical notation:
 
 $$(P_{local} = P_{world} * M^{-1}$$
 
-The inverse of M is also called the **world-to-local** coordinate system (it defines where the world coordinate system is with respect to the local coordinate system frame of reference):
+As you may have guessed already, the inverse of M is also called the **world-to-local** coordinate system (it defines where the world coordinate system is with respect to the local coordinate system frame of reference):
 
 $$
 \begin{array}{l}
