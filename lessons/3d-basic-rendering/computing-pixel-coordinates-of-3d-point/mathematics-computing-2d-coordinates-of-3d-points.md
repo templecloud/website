@@ -14,18 +14,18 @@ When a point is first defined in the scene, we say its coordinates are defined i
 
 Now, let's consider the camera but before we do so, let's talk about a concept in CG which is very important. As you know, objects in 3D can be transformed using any of the three following operators: translation, rotation, and scale. If you remember what we said in the lesson dedicated to [Geometry](http://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/geometry), linear transformations (in other words any combination of any of these three operators) can be represented by a 4x4 matrix. If you are not sure why and how this works, read the lesson on Geometry again and particularly the following two chapters: How Does Matrix Work [Part 1](http://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/geometry/how-does-matrix-work-part-1) & [Part 2](http://www.scratchapixel.com/lessons/mathematics-physics-for-computer-graphics/geometry/how-does-matrix-work-part-2). Remember that the first three coefficients along the diagonal encode the scale (the coefficients c00, c11 and c22 in the matrix below), the first three values of the last row encode the translation (the coefficients c30, c31, and c32 &mdash; assuming you use the row-major order convention) and the 3x3 upper-left inner matrix encodes the rotation (the red, green and blue coefficients).
 
-$$ 
+$$
 \begin{bmatrix}
-\color{red}{c_{00}}& \color{red}{c_{01}}&\color{red}{c_{02}}&\color{black}{c_{03}}\
-\color{green}{c_{10}}& \color{green}{c_{11}}&\color{green}{c_{12}}&\color{black}{c_{13}}\
-\color{blue}{c_{20}}& \color{blue}{c_{21}}&\color{blue}{c_{22}}&\color{black}{c_{23}}\
-\color{purple}{c_{30}}& \color{purple}{c_{31}}&\color{purple}{c_{32}}&\color{black}{c_{33}}\
+\color{red}{c_{00}}& \color{red}{c_{01}}&\color{red}{c_{02}}&\color{black}{c_{03}}\\
+\color{green}{c_{10}}& \color{green}{c_{11}}&\color{green}{c_{12}}&\color{black}{c_{13}}\\
+\color{blue}{c_{20}}& \color{blue}{c_{21}}&\color{blue}{c_{22}}&\color{black}{c_{23}}\\
+\color{purple}{c_{30}}& \color{purple}{c_{31}}&\color{purple}{c_{32}}&\color{black}{c_{33}}\\
 \end{bmatrix}
 \begin{array}{l}
-\rightarrow \quad \color{red} {x-axis}\
-\rightarrow \quad \color{green} {y-axis}\
-\rightarrow \quad \color{blue} {z-axis}\
-\rightarrow \quad \color{purple} {translation}\
+\rightarrow \quad \color{red} {x-axis}\\
+\rightarrow \quad \color{green} {y-axis}\\
+\rightarrow \quad \color{blue} {z-axis}\\
+\rightarrow \quad \color{purple} {translation}\\
 \end{array}
 $$
 
@@ -48,16 +48,16 @@ Here is for example the transformation matrix corresponding to the coordinate sy
 
 $$
 \begin{bmatrix}
-\color{red}{+0.718762}&\color{red}{+0.615033}&\color{red}{-0.324214}&0\
-\color{green}{-0.393732}&\color{green}{+0.744416}&\color{green}{+0.539277}&0\
-\color{blue}{+0.573024}&\color{blue}{-0.259959}&\color{blue}{+0.777216}&0\
-\color{purple}{+0.526967}&\color{purple}{+1.254234}&\color{purple}{-2.532150}&1\
+\color{red}{+0.718762}&\color{red}{+0.615033}&\color{red}{-0.324214}&0\\
+\color{green}{-0.393732}&\color{green}{+0.744416}&\color{green}{+0.539277}&0\\
+\color{blue}{+0.573024}&\color{blue}{-0.259959}&\color{blue}{+0.777216}&0\\
+\color{purple}{+0.526967}&\color{purple}{+1.254234}&\color{purple}{-2.532150}&1\\
 \end{bmatrix}
 \begin{array}{l}
-\rightarrow \quad \color{red} {x-axis}\
-\rightarrow \quad \color{green} {y-axis}\
-\rightarrow \quad \color{blue} {z-axis}\
-\rightarrow \quad \color{purple} {translation}\
+\rightarrow \quad \color{red} {x-axis}\\
+\rightarrow \quad \color{green} {y-axis}\\
+\rightarrow \quad \color{blue} {z-axis}\\
+\rightarrow \quad \color{purple} {translation}\\
 \end{array}
 $$
 
@@ -85,10 +85,10 @@ As suggested before, it is sometimes more convenient to operate on points when t
 
 $$
 \begin{bmatrix}
-\color{red}{+0.718762}&\color{red}{+0.615033}&\color{red}{-0.324214}&0\
-\color{green}{-0.393732}&\color{green}{+0.744416}&\color{green}{+0.539277}&0\
-\color{blue}{+0.573024}&\color{blue}{-0.259959}&\color{blue}{+0.777216}&0\
-\color{purple}{+0.526967}&\color{purple}{+1.254234}&\color{purple}{-2.532150}&1\
+\color{red}{+0.718762}&\color{red}{+0.615033}&\color{red}{-0.324214}&0\\
+\color{green}{-0.393732}&\color{green}{+0.744416}&\color{green}{+0.539277}&0\\
+\color{blue}{+0.573024}&\color{blue}{-0.259959}&\color{blue}{+0.777216}&0\\
+\color{purple}{+0.526967}&\color{purple}{+1.254234}&\color{purple}{-2.532150}&1\\
 \end{bmatrix}
 $$
 
@@ -96,19 +96,21 @@ $$
 
 By default, the local coordinate system coincides with the world coordinate system (the cube vertices are defined with respect to this local coordinate system). This is illustrated in figure 7a. Then, we apply the matrix M to the local coordinate system, which has for effect to change its position, scale, and rotation (this depends on the matrix values). This is illustrated in figure 7b. So before we apply the transform, the coordinates of the highlighted vertex in Figures 6 and 7 (the purple dot) are the same in both coordinate systems (since the frames of reference coincide). But after transformation, the world and local coordinates of the points are different (Figures 7a and 7b). To calculate the world coordinates of that vertex we need to multiply the point's original coordinates by the **local-to-world matrix**: we call it **local-to-world** because it defines the coordinate system with respect to the world coordinate system. This is pretty logical! If you transform the local coordinate system and if you want the cube to move with this coordinate system, you need to apply to the cube vertices the same transform as the one applied to the local coordinate system:
 
-$$P_{world} = P_{local} * M.$$
+$$P_{world} = P_{local} * M$$
 
 If you now want to go the other way around (to get the point "local coordinates" from its "world coordinates") you need to transform the point world coordinates with the inverse of M:
 
-$$
-P_{local} = P_{world} * M_{inverse}\) or in mathematical notation, \(P_{local} = P_{world} * M^{-1}
-$$
+$$P_{local} = P_{world} * M_{inverse}$$
+
+Or in mathematical notation:
+
+$$(P_{local} = P_{world} * M^{-1}$$
 
 The inverse of M is also called the **world-to-local** coordinate system (it defines where the world coordinate system is with respect to the local coordinate system frame of reference):
 
 $$
 \begin{array}{l}
-P_{world} = P_{local} * M_{local-to-world}\
+P_{world} = P_{local} * M_{local-to-world}\\
 P_{local} = P_{world} * M_{world-to-local}.
 \end{array}
 $$
@@ -117,12 +119,11 @@ Let's check that it works. Coordinates of the highlighted vertex in local space 
 
 $$
 \begin{array}{l}
-P_{world} = P_{local} * M\
-P_{world}.x = P_{local}.x * M_{00} + P_{local}.y * M_{10} + P_{local}.z * M_{20} + M_{30}\
-P_{world}.y = P_{local}.x * M_{01} + P_{local}.y * M_{11} + P_{local}.z * M_{22} + M_{31}\
-P_{world}.z = P_{local}.x * M_{02} + P_{local}.y * M_{12} + P_{local}.z * M_{22} + M_{32}\
-\end{array}
-$$
+P_{world} = P_{local} * M\\
+P_{world}.x = P_{local}.x * M_{00} + P_{local}.y * M_{10} + P_{local}.z * M_{20} + M_{30}\\
+P_{world}.y = P_{local}.x * M_{01} + P_{local}.y * M_{11} + P_{local}.z * M_{22} + M_{31}\\
+P_{world}.z = P_{local}.x * M_{02} + P_{local}.y * M_{12} + P_{local}.z * M_{22} + M_{32}\\
+\end{array}$$
 
 Let's implement and check the results (you can use the code from the Geometry lesson):
 
@@ -183,27 +184,19 @@ This a lot of reading but what for? Because, as already suggested we are now goi
 
 Let's recall that what we are trying to achieve, is to compute P', the coordinates of a point P from the 3D scene on the surface of a canvas, which as mentioned before, is the 2D surface on which the image of the scene will be drawn (the canvas is also called the projection plane or in CG, the **image plane**). If you trace a line from P to the eye (the origin of the camera coordinate system), P' is the line's point of intersection with the canvas (figure 10). When the point P coordinates are defined with respect to the camera coordinate system, computing the position of P' is trivial. If you look at figure 10 representing a side view of our setup, you can see that by construction we can trace two triangles \(\triangle ABC\) and \(\triangle AB'C'\), where A is the eye, B is the distance from the eye to P along the camera coordinate system z-axis, C is the distance from the eye to P along the camera coordinate system y-axis, B' is the distance from the eye to the canvas (for now, we will assume that this distance is 1 which is going to simplify our calculations) and C' is the distance from the eye to the P' along the camera coordinate system y-axis. The triangles \(\triangle ABC\) and \(\triangle AB'C'\) are said to be similar (similar strangles have the same shape, but eventually different sizes). Similar triangles have an interesting property: the ratio between their adjacent and opposite sides is the same. In other words:
 
-$$
-{ BC \over AB } = { B'C' \over AB' }.
-$$
+$${ BC \over AB } = { B'C' \over AB' }.$$
 
 Because the canvas is 1 unit away from the origin, we know that AB' equals 1. We also know the position of B and C which are the z- (depth) and y-coordinate (height) of point P (assuming P's coordinates are defined in the camera coordinate system). If we substitute these numbers in the above equation, we get:
 
-$$
-{ P.y \over P.z } = { P'.y \over 1 }.
-$$
+$${ P.y \over P.z } = { P'.y \over 1 }.$$
 
 Where y' is the y coordinate of P'. Thus:
 
-$$
-P'.y = { P.y \over P.z }.
-$$
+$$P'.y = { P.y \over P.z }.$$
 
 This is probably one the simplest and most fundamental relations in computer graphics, known as the z or **perspective divide**. The same principle applies to the x coordinate. The projected point x coordinate (x') is the corner's x coordinate divided by its z coordinate:
 
-$$
-P'.x = { P.x \over P.z }.
-$$
+$$P'.x = { P.x \over P.z }.$$
 
 !!!
 We described this method several times in the different lessons on the website, but what we want to show here, is that **to compute P' using these equations, the coordinates of P ought to be defined with respect to the camera coordinate system. However, points from the 3D scene are originally defined with respect to the world coordinate system. Therefore, the first and foremost operation we need to apply to points before projecting them onto the canvas is to convert them from world space to camera space**.
@@ -211,15 +204,13 @@ We described this method several times in the different lessons on the website, 
 
 How do we do that? If we know the camera-to-world matrix (which is similar to the local-to-camera matrix we studied in the previous case), we can transform any point whose coordinates are defined in world space to camera space, by multiplying this point by the camera-to-world inverse matrix (the world-to-camera matrix):
 
-$$
-P_{camera} = P_{world} * M_{world-to-camera}.
-$$
+$$P_{camera} = P_{world} * M_{world-to-camera}.$$
 
 Then at this stage, we can "project" the point on the canvas using the equations we presented before:
 
 $$
 \begin{array}{l}
-P'.x = \dfrac{P_{camera}.x}{P_{camera}.z}\
+P'.x = \dfrac{P_{camera}.x}{P_{camera}.z}\\
 P'.y = \dfrac{P_{camera}.y}{P_{camera}.z}.
 \end{array}
 $$
@@ -228,7 +219,7 @@ Recall that by default, cameras are oriented along the world coordinate system's
 
 $$
 \begin{array}{l}
-P'.x = \dfrac{P_{camera}.x}{-P_{camera}.z}\
+P'.x = \dfrac{P_{camera}.x}{-P_{camera}.z}\\
 P'.y = \dfrac{P_{camera}.y}{-P_{camera}.z}.
 \end{array}
 $$
@@ -262,7 +253,7 @@ Any projected point whose absolute x- and y-coordinate is greater than half of t
 $$
 \text {visible} =
 \begin{cases}
-yes & |P'.x| \le {W \over 2} \text{ or }  |P'.y| \le {H \over 2}\
+yes & |P'.x| \le {W \over 2} \text{ or }  |P'.y| \le {H \over 2}\\
 no & \text{otherwise}
 \end{cases}
 $$
@@ -277,7 +268,7 @@ The first thing we are going to do is to remap P' coordinates in the range [0,1]
 
 $$
 \begin{array}{l}
-P'_{normalized}.x = \dfrac{P'.x + width / 2}{ width }\
+P'_{normalized}.x = \dfrac{P'.x + width / 2}{ width }\\
 P'_{normalised}.y = \dfrac{P'.y + height / 2}{ height }
 \end{array}
 $$
@@ -288,7 +279,7 @@ The last step is simple. All we need to do is now multiply the projected point x
 
 $$
 \begin{array}{l}
-P'_{raster}.x = \lfloor{ P'_{normalized}.x * \text{ Pixel Width} }\rfloor\
+P'_{raster}.x = \lfloor{ P'_{normalized}.x * \text{ Pixel Width} }\rfloor\\
 P'_{raster}.y = \lfloor{ P'_{normalized}.y * \text{Pixel Height} }\rfloor
 \end{array}
 $$
@@ -297,7 +288,7 @@ In mathematics, \(\lfloor{a}\rfloor\), denotes the [floor function](https://en.w
 
 $$
 \begin{array}{l}
-P'_{raster}.x = \lfloor{ P'_{normalized}.x * \text{ Pixel Width} }\rfloor\
+P'_{raster}.x = \lfloor{ P'_{normalized}.x * \text{ Pixel Width} }\rfloor\\
 P'_{raster}.y = \lfloor{ (1 - P'_{normalized}.y) * \text{Pixel Height} }\rfloor
 \end{array}
 $$
@@ -407,7 +398,6 @@ int main(...)
     return 0;
 }
 ```
-
 
 We will use a similar function in our example program (look at the source code chapter). To demonstrate the technique, we created a simple object in Maya (a tree with a star sitting on top) and rendered an image of that tree from a given camera in Maya (see the image below). To simplify the exercise we triangulated the geometry. We then stored a description of that geometry and the Maya camera 4x4 transform matrix (the camera-to-world matrix) in our program. To create an image of that object, we need to loop over each triangle making up the geometry, extract from the vertex list the vertices making up the current triangle, convert these vertices' world coordinates to 2D pixel coordinates, and finally draw lines connecting the resulting 2D points to draw an image of that triangle as viewed from the camera (we trace a line from the first point to the second point, from the second point to the third, and then from the third point back to the first point). We will store the resulting lines in an SVG file. The SVG format is designed to create images using simple geometric shapes such as lines, rectangles, circles, etc. which are described in XML. Here is how we define a line in SVG for instance:
 
