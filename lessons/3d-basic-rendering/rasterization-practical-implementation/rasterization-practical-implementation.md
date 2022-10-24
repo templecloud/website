@@ -1,6 +1,6 @@
 ## Improving the Rasterization Algorithm
 
-[Figure 1: jagged edges pixel artifacts can be reduced using anti-aliasing.](/images/rasterization/jaggies.png)
+![Figure 1: jagged edges pixel artifacts can be reduced using anti-aliasing.](/images/rasterization/jaggies.png)
 
 ![Figure 2: when one sample is used the triangle is missed. But by using sub-pixels, we can detect that the pixel overlaps the triangle at least partially. The pixel color is equal to the sum of the sub-pixel colors divided by the total number of sub-pixels or samples (in this example, 16 samples).](/images/rasterization/antialiasing3.png?)
 
