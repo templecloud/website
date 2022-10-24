@@ -1,2 +1,7 @@
 @Rasterization: a Practical Implementation
 overview-rasterization-algorithm.md:An Overview of the Rasterization Algorithm
+projection-stage.md:The Projection Stage
+rasterization-stage.md:The Rasterization Stage
+visibility-problem-depth-buffer-depth-interpolation.md:The Visibility Problem, the Depth Buffer Algorithm and Depth Interpolation
+perspective-correct-interpolation-vertex-attributes.md:Perspective Correct Interpolation and Vertex Attributes
+rasterization-practical-implementation.md:Rasterization: a Practical Implementation

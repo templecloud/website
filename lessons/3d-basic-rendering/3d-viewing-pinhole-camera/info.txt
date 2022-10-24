@@ -1,2 +1,5 @@
 @3D Viewing: the Pinhole Camera Model
 how-pinhole-camera-works-part-1.md:How a pinhole camera works (part 1)
+how-pinhole-camera-works-part-2.md:How a pinhole camera works (part 2)
+virtual-pinhole-camera-model.md:A Virtual Pinhole Camera Model
+implementing-virtual-pinhole-camera.md:Implementing a Virtual Pinhole Camera
