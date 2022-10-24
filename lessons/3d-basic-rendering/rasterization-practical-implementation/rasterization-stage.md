@@ -59,7 +59,7 @@ $$
 \end{vmatrix}
 $$
 
-The **[determinant](http://en.wikipedia.org/wiki/Determinant#2.C2.A0.C3.97.C2.A02_matrices)** of this matrix can be computed as:
+The [**determinant**](http://en.wikipedia.org/wiki/Determinant#2.C2.A0.C3.97.C2.A02_matrices) of this matrix can be computed as:
 
 $$A.x * B.y - A.y * B.x.$$
 
@@ -197,7 +197,7 @@ This is a form of interpolation if you want. They are also sometimes defined as 
 
 $$C_P = \lambda_0 * C_{V0} + \lambda_1 * C_{V1} + \lambda_2 * C_{V2}.$$ 
 
-This is a very handy technique that is going to be useful to shade triangles. Data associated with the vertices of triangles is called **vertex attribute**. This is a very common and very important technique in CG. **The most common vertex attributes are colors, normals, and texture coordinates**. What this means in practice, is that generally when you define a triangle you don't only pass on to the renderer the triangle vertices but also its associated vertex attributes. For example, if you want to shade the triangle you may need color and normal vertex attribute, which means that each triangle will be defined by 3 points (the triangle vertex positions), 3 colors (the color of the triangle vertices), and 3 normals (the normal of the triangle vertices). Normals too can be interpolated across the surface of the triangle. Interpolated normals are used in a technique called **[smooth shading](http://en.wikipedia.org/wiki/Gouraud_shading)** which was first introduced by Henri Gouraud. We will explain this technique later when we get to shading.
+This is a very handy technique that is going to be useful to shade triangles. Data associated with the vertices of triangles is called **vertex attribute**. This is a very common and very important technique in CG. **The most common vertex attributes are colors, normals, and texture coordinates**. What this means in practice, is that generally when you define a triangle you don't only pass on to the renderer the triangle vertices but also its associated vertex attributes. For example, if you want to shade the triangle you may need color and normal vertex attribute, which means that each triangle will be defined by 3 points (the triangle vertex positions), 3 colors (the color of the triangle vertices), and 3 normals (the normal of the triangle vertices). Normals too can be interpolated across the surface of the triangle. Interpolated normals are used in a technique called [**smooth shading**](http://en.wikipedia.org/wiki/Gouraud_shading) which was first introduced by Henri Gouraud. We will explain this technique later when we get to shading.
 
 How do we find these barycentric coordinates? It turns out to be simple. As mentioned above when we presented the edge function, the result of the edge function can be interpreted as the area of the parallelogram defined by the vectors A and B. If you look at figure 8, you can easily see that the area of the triangle defined by the vertices V0, V1, and V2, is just half of the area of the parallelogram defined by the vectors A and B. The area of the triangle is thus half the area of the parallelogram which we know can be computed by the cross-product of the two 2D vectors A and B:
 

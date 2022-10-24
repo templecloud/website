@@ -156,7 +156,7 @@ $$\begin{array}{l}
 \end{array}
 $$
 
-If now replace \\(X\_0\\) and \\(X\_1\\) in equation 3 with equation 4, we get (equation 5):
+If now replace \(X_0\) and \(X_1\) in equation 3 with equation 4, we get (equation 5):
 
 $$Z = \dfrac{\color{red}{S_0 * Z_0} + t * (\color{green}{S_1 * Z_1} - \color{red}{S_0 * Z_0})}{S_0 + q * (S_1 - S_0)}$$
 

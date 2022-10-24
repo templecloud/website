@@ -315,9 +315,9 @@ bool computePixelCoordinates(
 
 Here is a summary of the changes we made to the function:
 
-- lines 16 and 17: the result of the perspective divide is multiplied by the near-clipping plane.
+- Lines 16 and 17: the result of the perspective divide is multiplied by the near-clipping plane.
 - Lines 20 and 21: to remap the point from screen space to NDC space, we divide the point x and y-coordinates in screen space by the canvas width and height respectively.
-- line 26 and 27: the point coordinates in screen space are compared with the bottom-left, top-right canvas coordinates. if the point lies outside, we set the visible variable to false.
+- Lines 26 and 27: the point coordinates in screen space are compared with the bottom-left, top-right canvas coordinates. if the point lies outside, we set the visible variable to false.
 
 The rest of the program (which you can find in the source code section), is similar to the previous program. We loop over all the triangles of the 3D model, convert the triangle's vertices coordinates to raster coordinates and store the result in an SVG file. Let's render a few images in Maya and with our program and check the results.
 
@@ -335,10 +335,10 @@ In the following text, when we say that the film gate matches the resolution gat
 
 ![Figure 8: when the film gate aspect ratio and the resolution gate ratio don't match, we need to choose between four options.](/images/cameras/fitgateresolution3.png?)
 
-- Fill Mode: we fit the resolution gate within the film gate (the blue box is contained within the red box). We have to handle two cases: 
+- **Fill Mode**: we fit the resolution gate within the film gate (the blue box is contained within the red box). We have to handle two cases: 
   - Figure 8a: when the film aspect ratio is greater than the device aspect ratio, the canvas left and right coordinates need to be scaled down to match the left and right coordinates of the resolution gate. This can be done by multiplying the left and right coordinates by the resolution aspect ratio over the film aspect ratio.
   - Figure 8c: when the film aspect ratio is lower than the device aspect ratio, the canvas top and bottom coordinates need to be scaled down to match the top and bottom coordinates of the resolution gate. This can be done by multiplying the top and bottom coordinates by the film aspect ratio over the resolution aspect ratio.
-- Overscan Mode: we fit the film gate within the resolution gate (the red box is contained within the blue box). We have to handle two cases: 
+- **Overscan Mode**: we fit the film gate within the resolution gate (the red box is contained within the blue box). We have to handle two cases: 
   - Figure 8b: when the film aspect ratio is greater than the device aspect ratio, the canvas top, and bottom coordinates need to be scaled up to match the resolution gate top and bottom coordinates. To do so, we multiply the canvas top and bottom coordinates by the film aspect ratio over the resolution aspect ratio.
   - Figure 8d: when the film aspect ratio is lower than the device aspect ratio, the canvas left and right coordinates need to be scaled up to match the resolution gate top and bottom coordinates. To do so, we multiply the canvas top and bottom coordinates by the resolution aspect ratio over the film aspect ratio.
 
