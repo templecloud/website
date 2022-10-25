@@ -81,7 +81,7 @@ We are using some of the standard rules but we added a few that are specific to 
   You can use multiple lines and lists if you need to.
   !!!
   ```
-- **Tables**: tables are not handled in the way they are typically handled in Markdown. While Markdown is "designed" to make the text sort of readable in ASCII, the accepted rule for building a table in MD is just making the life of the editor a real pain when the cells contain multiple lines which is almost all the case when it comes to real world work.
+- **Tables**: tables are not handled in the way they are typically handled in Markdown. While Markdown is "designed" to make the text sort of readable in ASCII, the accepted rule for building a table in MD is just making the life of the editor a real pain when the cells contain multiple lines which is more often the case than not when it comes to real world work.
   ```
   |-table{My header title 1,My header title 2}
   |-row
