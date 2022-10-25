@@ -39,7 +39,7 @@ int orient2d(const Point2D& a, const Point2D& b, const Point2D& c)
 }
 ```
 
-Recall that `a` and `b` in this function are the triangle vertices and that `c` is the pixel coordinates (in raster space). One interesting thing to note is that this function is going to be called for each pixel contained in the triangle bounding box. Though while we iterate over multiple pixels only `c` changes. The variables `a` and `b` stay the same. Suppose we evaluate the equation one time and get a result `w0`:
+Recall that `a` and `b` in this function are the triangle vertices and that `c` is the pixel coordinates (in raster space). One interesting thing to note is that this function is going to be called for each pixel contained in the triangle bounding box. Though while we iterate over multiple pixels only `c` changes. The variables `a` and `b` stay the same. Suppose we evaluate the equation once and get a result `w0`:
 
 ```
 w0 = (b.x - a.x) * (c.y - a.y) - (b.y - a.y) * (c.x - a.x);
@@ -65,7 +65,7 @@ w0_new = w0 + w0step;
 
 You can do this for `w1` and `w2`, and also do a similar thing for the `c.y` step.
 
-The edge function uses 2 mults and 5 subs but with this trick, it can be reduced to a simple addition (of course you need to compute a few initial values). This technique is well documented on the internet. We won't be using it in this lesson but we will study it in more detail and implement it in another lesson devoted to advanced rasterization techniques.
+The edge function uses 2 mults and 5 subs but with this trick, it can be reduced to a simple addition (of course you need to compute the initial values). This technique is well documented on the internet. We won't be using it in this lesson but we will study it in more detail and implement it in another lesson devoted to advanced rasterization techniques.
 
 ### Fixed Point Coordinates
 

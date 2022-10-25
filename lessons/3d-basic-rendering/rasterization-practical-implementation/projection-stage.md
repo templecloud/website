@@ -181,9 +181,9 @@ pNDC.x = 2 * pScreen.x / (r - l) - (r + l) / (r - l);
 pNDC.y = 2 * pScreen.y / (t - b) - (t + b) / (t - b);
 // convert to raster space and set point z-coordinate to -pCamera.z
 Vec3f pRaster;
-pRaster.x = (pScreen.x + 1) / 2 * imageWidth;
+pRaster.x = (pNDC.x + 1) / 2 * imageWidth;
 // in raster space y is down so invert direction
-pRaster.y = (1 - pScreen.y) / 2 * imageHeight;
+pRaster.y = (1 - pNDC.y) / 2 * imageHeight;
 // store the point camera space z-coordinate (as a positive value)
 pRaster.z = -pCamera.z;
 ```
