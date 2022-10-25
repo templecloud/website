@@ -105,7 +105,7 @@ For style recommendations, check the Philosophy Behind Writing Content for Scrat
 
 ## General File Organization
 
-The content for all the lessons is stored under `website/lessons`. Directories under this particular directory represent broad categories. Then in each broad category, you will find the lessons organized in separate folders. Example: `lessons/3d-basic-rendering/introduction-to-ray-tracing/` is the path to the introduction-to-ray-tracing lesson. Inside that folder, you will find the chapters stored as Markdown files. The order of the lesson is defined in the `info.txt` file that is stored in the same directory. This is also where the lesson title is defined. Generally please do not edit the name of the Markdown files, not change the content of an `info.txt` file. Only change the content of an MD file if you want to.
+The content for all the lessons is stored under `website/lessons`. Directories under this particular directory represent broad categories. Then in each broad category, you will find the lessons organized in separate folders. Example: `lessons/3d-basic-rendering/introduction-to-ray-tracing/` is the path to the introduction-to-ray-tracing lesson. Inside that folder, you will find the chapters stored as Markdown files. The order of the lesson is defined in the `info.txt` file that is stored in the same directory. This is also where the lesson title is defined. Generally please do not edit the name of the Markdown files, and do not change the content of an `info.txt` file (note that these will be replaced by json files soon). Only change the content of an MD file if you want to.
 
 ## Pushing Changes
 
