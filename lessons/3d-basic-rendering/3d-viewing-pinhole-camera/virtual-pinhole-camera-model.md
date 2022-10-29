@@ -38,8 +38,7 @@ Keep in mind as well, that the distance between the eye and the canvas, the near
 
 ## Computing the Canvas Size and the Canvas Coordinates
 
-![Figure 5: side view of our camera setup. Objects closer than the near-clipping plane or farther than the far-clipping plane are invisible to the camera. The distance from the eye to the canvas is defined as the near-clipping plane. The canvas size depends on this distance (Znear) as well as the angle of view. A point is only visible to the camera if the projected point x- and y-coordinates are contained within the canvas boundaries (in this example P1 is visible because P1' is contained within the limits of the canvas, while P2 is invisible).
-](/images/cameras/clippingplanes2.png?)
+![Figure 5: side view of our camera setup. Objects closer than the near-clipping plane or farther than the far-clipping plane are invisible to the camera. The distance from the eye to the canvas is defined as the near-clipping plane. The canvas size depends on this distance (Znear) as well as the angle of view. A point is only visible to the camera if the projected point x- and y-coordinates are contained within the canvas boundaries (in this example P1 is visible because P1' is contained within the limits of the canvas, while P2 is invisible).](/images/cameras/clippingplanes2.png?)
 
 ![Figure 6: a point is only visible to the camera if the projected point x- and y-coordinates are contained within the canvas boundaries (in this example P1 is visible because P1' is contained within the limits of the canvas, while P2 is invisible).](/images/cameras/clippingplanes1.png?)
 
