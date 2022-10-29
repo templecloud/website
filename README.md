@@ -81,7 +81,7 @@ We are using some of the standard rules but we added a few that are specific to 
   You can use multiple lines and lists if you need to.
   !!!
   ```
-- **Tables**: tables are not handled in the way they are typically handled in Markdown. While Markdown is "designed" to make the text sort of readable in ASCII, the accepted rule for building a table in MD is just making the life of the editor a real pain when the cells contain multiple lines which is almost all the case when it comes to real world work.
+- **Tables**: tables are not handled in the way they are typically handled in Markdown. While Markdown is "designed" to make the text sort of readable in ASCII, the accepted rule for building a table in MD is just making the life of the editor a real pain when the cells contain multiple lines which is more often the case than not when it comes to real world work.
   ```
   |-table{My header title 1,My header title 2}
   |-row
@@ -105,7 +105,7 @@ For style recommendations, check the Philosophy Behind Writing Content for Scrat
 
 ## General File Organization
 
-The content for all the lessons is stored under `website/lessons`. Directories under this particular directory represent broad categories. Then in each broad category, you will find the lessons organized in separate folders. Example: `lessons/3d-basic-rendering/introduction-to-ray-tracing/` is the path to the introduction-to-ray-tracing lesson. Inside that folder, you will find the chapters stored as Markdown files. The order of the lesson is defined in the `info.txt` file that is stored in the same directory. This is also where the lesson title is defined. Generally please do not edit the name of the Markdown files, not change the content of an `info.txt` file. Only change the content of an MD file if you want to.
+The content for all the lessons is stored under `website/lessons`. Directories under this particular directory represent broad categories. Then in each broad category, you will find the lessons organized in separate folders. Example: `lessons/3d-basic-rendering/introduction-to-ray-tracing/` is the path to the introduction-to-ray-tracing lesson. Inside that folder, you will find the chapters stored as Markdown files. The order of the lesson is defined in the `info.txt` file that is stored in the same directory. This is also where the lesson title is defined. Generally please do not edit the name of the Markdown files, and do not change the content of an `info.txt` file (note that these will be replaced by json files soon). Only change the content of an MD file if you want to.
 
 ## Pushing Changes
 
