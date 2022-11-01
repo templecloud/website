@@ -10,7 +10,7 @@ What is Scratchapixel? It is a website that attempts at being a central reposito
 
 What Scratchapixel is not:
 
-- Doesn't teach you how to use 3D software
+- Doesn't teach you how to use 3D software.
 - Doesn't teach you about 3D real-time APIs such as Direct X or Vulkan. However, it will help you understand how these APIs work under the hood.
 - Doesn't provide the source code of complex programs containing 100 files and an over-designed third-party dependent build setup that fails to work on your computer no matter what).
 
@@ -32,16 +32,16 @@ If you wish to write original content please get in touch with us directly.
 
 ### General Structure of a document
 
-- H1 (#) is reserved for the lesson's title, so don't use it on a page
-- H2 (##) can be used for all the paragraph headings of a chapter
+- H1 (#) is reserved for the lesson's title, so don't use it on a page.
+- H2 (##) used for the paragraph headings of a chapter.
 
 ###  Editing rules
 
-- Do not change the directory structure not the content of metadata files such as `info.txt` which you will find in the lessons repository. Please.
-- Refrain yourself from changing a lesson's structure if possible. If you want to make that kind of change, please get in touch with us so that we can discuss this first. Please.
-- When you write the heading of a paragraph (##), always insure that the first letter of every **key** word is capitalized. For instance, write "This is Lesson on Ray-Tracing" and not "This is a lesson on ray-tracing"
+- Do not change the directory structure nor the content of metadata files such as `info.txt` which you will find in the lessons repository. Thank you.
+- Don't change the lesson's structure. If you want to make that kind of change, please get in touch with us first. Thank you.
+- When you write the heading of a paragraph (##), the first letter of every **key** word is capitalized. For instance, write "This is Lesson on Ray-Tracing" and not "This is a lesson on ray-tracing"
 - Use standard markdown tags for things such as quote, italic, bold, images, etc. (see below).
-- No point at the end of headings (h2)
+- No point at the end of headings (h2).
 - No word capitalization after a semicolon. For example write, `Figure 1: this is an example` and not `Figure 1: This is an example`, unless of course the word is a noun.
 - Avoid double-nested lists (they don't look good on mobile).
 - The word Figure (if it refers to a figure) should be written `Figure` (with a capital F).
