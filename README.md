@@ -12,7 +12,7 @@ What Scratchapixel is not:
 
 - Doesn't teach you how to use 3D software
 - Doesn't teach you about 3D real-time APIs such as Direct X or Vulkan. However, it will help you understand how these APIs work under the hood.
-- Doesn't provide the source code of complex programs containing 100 files and an other-designed third-party dependent build setup that fails to work on your computer no matter what).
+- Doesn't provide the source code of complex programs containing 100 files and an over-designed third-party dependent build setup that fails to work on your computer no matter what).
 
 ## Licence and Copyright
 
