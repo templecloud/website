@@ -39,6 +39,8 @@ For the time being, it would be great if you could mostly focus on typos, layout
 
 The point of making the project open source at this point in time is to improve the quality of the current content as much as possible. If you wish to write original content or would like to suggest important changes to the structure of a lesson, please get in touch with us (email/Discord).
 
+Changes will be pushed to www.scratchapixel.org until all the content have been translated to Markdown and reviewed. Once done, we will then publish the content under wwww.scratchapixel.com. Hopefully this can be done by the end of 2022 and we can start to add new content again.
+
 ### General Structure of a document
 
 - H1 (#) is reserved for the lesson's title, so don't use it on a page.
