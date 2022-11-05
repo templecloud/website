@@ -6,7 +6,7 @@ What is Scratchapixel? It is a website that attempts at being a central reposito
 - Written in plain English. 
 - Every equation is derived.
 - Focus on simplicity & accessibility.
-- Books like PBRT (Physically Based Rendering) provide a complete software solution and chapters from the book describe diffrent parts of the program. Scratchapixel does not focused on providing a large software solution to which the lessons would refer to. Instead, each lesson focuses on one particular technique and each lesson comes with its own code. The goal is to show how the studied technique translate into code in a program that can easily be compiled from the command line and doesn't rely on a complex build system to be tested.
+- Books like PBRT (Physically Based Rendering) provide a complete software solution and chapters from the book describe diffrent parts of the program. Scratchapixel does not provide the source code of a large software solution to which the lessons would refer to. Instead, each lesson focuses on one particular technique and each lesson comes with its own code. The goal is to show how the studied technique translate into code in a program that can easily be compiled from the command line and doesn't rely on a complex build system to be tested.
 
 What Scratchapixel is not:
 
