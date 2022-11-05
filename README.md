@@ -5,30 +5,39 @@ What is Scratchapixel? It is a website that attempts at being a central reposito
 - Free. 
 - Written in plain English. 
 - Every equation is derived.
-- Techniques are studied if possible in isolation from the others. Each studied technique is implemented in a program (C++ source code provided) that can easily be compiled from a command line. No Makefile, no dependency. It's designed for people who learn better when they make things (we still present equations but we always explain who they translate into code).
 - Focus on simplicity & accessibility.
+- Books like PBRT (Physically Based Rendering) provide a complete software solution and chapters from the book describe diffrent parts of the program. Scratchapixel does not focused on providing a large software solution to which the lessons would refer to. Instead, each lesson focuses on one particular technique and each lesson comes with its own code. The goal is to show how the studied technique translate into code in a program that can easily be compiled from the command line and doesn't rely on a complex build system to be tested.
 
 What Scratchapixel is not:
 
-- Doesn't teach you how to use 3D software.
+- Not a place where you can learn about using 3D software such as Maya or Blender.
 - Doesn't teach you about 3D real-time APIs such as Direct X or Vulkan. However, it will help you understand how these APIs work under the hood.
-- Doesn't provide the source code of complex programs containing 100 files and an over-designed third-party dependent build setup that fails to work on your computer no matter what).
 
 ## Licence and Copyright
 
-XX TO DO
+All content of Scratchapixel falls under the Creative Commons “BY-NC-ND” licence (Attribution-NonCommercial-NoDerivatives license). It allows people to use the unadapted work for noncommercial purposes only, and only as long as they give credit to the creator. They may also adapt the work for their own personal use but may not share any adaptations publicly.
 
 ## Editing Content
 
 ### Why and Who Can Edit the Content, and What For?
 
-Anybody can edit the content. So you are more than welcome to do so. Although be mindful about a few things: changes won't necessarily be accepted/go to the main branch (see guidelines below). **The goal of making the project open source at this point is mostly to improve the content in terms of typos, bug fixes, grammar improvements, etc., and to translate the content of Scratchapixel to different languages**.
+Anybody can edit the content. So you are more than welcome to do so. However please check the guidelines below.
 
-- Authors are not necessarily native to English and some lessons would deserve to be improved in terms of typos, grammar, etc. Rewording a sentence that's a bit strange to a native English speaker would be great.
-- Fixing bad links, etc. (though we will check for those when the website is published so this should not happen).
-- If you want to translate a lesson to a different language (see support for languages below)
+### Workflow for Contributors
 
-If you wish to write original content please get in touch with us directly.
+If you want to help, first thank you). We want to avoid conflicts in the process of reviewing lessons. For this reason, as we are experimenting with this review process, we thought that to start with, we would only have a one reviewer per lesson. To do so, we made a Google Docs document in which we have listed all the lessons that are ready for being reviewed. If you see a lesson that has no reviewer/contributor yet and that you would be willing to review this lesson, add your name next to the lesson title and follow the steps below.
+
+[https://docs.google.com/spreadsheets/d/19ljS9fyrRFchaIn_TF8L2YaZw5p89kFqo6QfTad9Av0/edit?usp=sharing](https://docs.google.com/spreadsheets/d/19ljS9fyrRFchaIn_TF8L2YaZw5p89kFqo6QfTad9Av0/edit?usp=sharing)
+
+- You need a GitHub account. Once logged in into your account, go to [Scratchapixel's website repository]().
+- Fork the repository. This will create a copy of the repository in your own account.
+- How you want to edit the content after that point is entirely up to you. You can edit the content directly from GitHub (from your account, using the "forked" repo) or clone the project on your local computer to use the text editor of your choice.
+- If you work with a cloned copy (remotely) you will need to install [Git Credential Manager](http://microsoft.github.io/Git-Credential-Manager-for-Windows/Docs/CredentialManager.html). 
+- Once you want your edits to be pushed to the main website, create a pull request (from which we will be to able to merge your changes into the master branch). Your edits will go through an approval process before being merged to the main branch.
+
+For the time being, it would be great if you could mostly focus on typos, layout, grammatical issues, and  improving the readibility of sentences if needs be. If you find some issues with the code snippets or the equations of course, please feel free to fix them too. 
+
+The point of making the project open source at this point in time is to improve the quality of the current content as much as possible. If you wish to write original content or would like to suggest important changes to the structure of a lesson, please get in touch with us (email/Discord).
 
 ### General Structure of a document
 
@@ -46,7 +55,6 @@ If you wish to write original content please get in touch with us directly.
 - Avoid double-nested lists (they don't look good on mobile).
 - The word Figure (if it refers to a figure) should be written `Figure` (with a capital F).
 - All texts in figures should end with a dot (this is checked by the MD to HTML app).
-- While the main author of Scratchapixel makes an abusive use of smileys, avoid smileys within the content of the lessons please)).
 
 ### Markdown Rules
 
